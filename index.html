@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEQUI - Criatividade com sabor brasileiro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pequi-yellow: #FFD500;
+            --dark-green: #013220;
+            --glitch-time: 0.5s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+
+        /* Cursor */
+        .cursor-dot {
+            width: 8px; height: 8px;
+            background-color: var(--pequi-yellow);
+            border-radius: 50%; position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none; z-index: 9999;
+            mix-blend-mode: difference; transition: transform 0.2s ease;
+        }
+        .cursor-outline {
+            width: 30px; height: 30px;
+            border: 2px solid var(--pequi-yellow);
+            border-radius: 50%; position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none; z-index: 9998;
+            mix-blend-mode: difference; transition: all 0.2s ease-out;
+        }
+
+        .btn-hover:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,213,0,0.3); }
+        .btn-hover:active { transform: translateY(1px); }
+
+        /* Glitch */
+        .glitch { position: relative; }
+        .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.8; }
+        .glitch::before { color: #0ff; z-index: -1; animation: glitch-effect var(--glitch-time) infinite; }
+        .glitch::after { color: #f0f; z-index: -2; animation: glitch-effect var(--glitch-time) infinite reverse; }
+        @keyframes glitch-effect {
+            0% { transform: translate(0); } 20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); } 60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); } 100% { transform: translate(0); }
+        }
+
+        .word-hover:hover { color: var(--pequi-yellow); text-decoration: underline; text-decoration-color: var(--pequi-yellow); cursor: pointer; }
+
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 4px; background: var(--pequi-yellow); z-index: 9999; transition: width 0.1s; }
+
+        .project-card { transition: all 0.3s ease; transform-origin: center; }
+        .project-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,213,0,0.2); }
+
+        .section { min-height: 100vh; padding: 5rem 2rem; position: relative; overflow: hidden; }
+
+        .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .particle { position: absolute; background-color: var(--pequi-yellow); border-radius: 50%; opacity: 0.3; }
+
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background-color: #000; border: 2px solid var(--pequi-yellow); padding: 2rem; max-width: 80%; position: relative; }
+        .close-modal { position: absolute; top: 10px; right: 10px; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        .ai-generator { background: linear-gradient(45deg, #000, var(--dark-green)); border: 1px solid var(--pequi-yellow); transition: all 0.3s ease; }
+        .ai-generator:hover { box-shadow: 0 0 20px var(--pequi-yellow); }
+
+        .typing-text { border-right: 2px solid var(--pequi-yellow); animation: blink-caret 0.75s step-end infinite; }
+        @keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: var(--pequi-yellow); } }
+
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background-color: var(--pequi-yellow); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+
+        .zap-btn { position: relative; overflow: hidden; }
+        .zap-btn::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(to bottom right, transparent, transparent, transparent, var(--pequi-yellow), transparent, transparent, transparent);
+            transform: rotate(0deg); transition: transform 0.5s ease;
+        }
+        .zap-btn:hover::before { transform: rotate(180deg); }
+
+        .rotate-text { animation: rotate 10s linear infinite; }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Mobile Menu */
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+
+        /* Floating WhatsApp */
+        .float-whatsapp {
+            position: fixed; bottom: 24px; right: 24px; z-index: 9000;
+            width: 60px; height: 60px; background: #25D366;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+            transition: all 0.3s ease; cursor: pointer; text-decoration: none;
+        }
+        .float-whatsapp:hover { transform: scale(1.15); box-shadow: 0 8px 30px rgba(37,211,102,0.7); }
+        .float-whatsapp i { color: white; font-size: 28px; }
+        .float-whatsapp .tooltip {
+            position: absolute; right: 70px; white-space: nowrap;
+            background: #1a1a1a; color: white; padding: 6px 12px;
+            border-radius: 8px; font-size: 13px; opacity: 0;
+            transition: opacity 0.2s; pointer-events: none; border: 1px solid #333;
+        }
+        .float-whatsapp:hover .tooltip { opacity: 1; }
+
+        /* AI Chat Widget */
+        #ai-chat-widget {
+            position: fixed; bottom: 100px; right: 24px; z-index: 8999;
+        }
+        #chat-toggle {
+            width: 56px; height: 56px; background: var(--pequi-yellow);
+            border-radius: 50%; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(255,213,0,0.4);
+            transition: all 0.3s ease;
+        }
+        #chat-toggle:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(255,213,0,0.6); }
+        #chat-toggle i { color: black; font-size: 22px; }
+        #chat-box {
+            display: none; position: absolute; bottom: 70px; right: 0;
+            width: 340px; background: #111; border: 1px solid #FFD500;
+            border-radius: 16px; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        }
+        #chat-box.open { display: flex; flex-direction: column; }
+        .chat-header {
+            background: #FFD500; padding: 14px 18px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .chat-header span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: black; font-size: 15px; }
+        .chat-header small { color: #333; font-size: 11px; }
+        .chat-messages { height: 280px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-track { background: #000; }
+        .chat-messages::-webkit-scrollbar-thumb { background: #FFD500; border-radius: 2px; }
+        .msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; }
+        .msg.bot { background: #1a1a1a; border: 1px solid #333; color: #eee; align-self: flex-start; border-bottom-left-radius: 4px; }
+        .msg.user { background: #FFD500; color: black; align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 500; }
+        .msg.typing { background: #1a1a1a; border: 1px solid #333; color: #888; align-self: flex-start; }
+        .chat-input-area { padding: 12px; border-top: 1px solid #222; display: flex; gap: 8px; }
+        .chat-input-area input {
+            flex: 1; background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
+            padding: 10px 12px; color: white; font-size: 13px; outline: none;
+            transition: border-color 0.2s;
+        }
+        .chat-input-area input:focus { border-color: #FFD500; }
+        .chat-input-area button {
+            background: #FFD500; color: black; border: none; border-radius: 8px;
+            padding: 10px 14px; cursor: pointer; font-weight: 700; font-size: 13px;
+            transition: background 0.2s;
+        }
+        .chat-input-area button:hover { background: #ffc700; }
+
+        /* Playground */
+        .playground-input {
+            background: #111; border: 1px solid #444; border-radius: 12px;
+            padding: 16px; color: white; font-size: 15px; width: 100%;
+            outline: none; transition: border-color 0.3s; resize: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .playground-input:focus { border-color: var(--pequi-yellow); }
+        #ai-output pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', sans-serif; }
+
+        /* Cursor trail */
+        .trail-dot {
+            position: fixed;
+            width: 6px; height: 6px;
+            background: var(--pequi-yellow);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9990;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Parallax hero layers */
+        #hero-layer-1, #hero-layer-2, #hero-layer-3 {
+            transition: transform 0.05s linear;
+            will-change: transform;
+        }
+
+        /* Konami overlay */
+        #konami-overlay {
+            display: none;
+            position: fixed; inset: 0; z-index: 99999;
+            background: rgba(0,0,0,0.92);
+            align-items: center; justify-content: center;
+            flex-direction: column;
+        }
+        #konami-overlay.show { display: flex; }
+        #konami-overlay h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            color: #FFD500; text-align: center;
+            animation: konami-pulse 1s ease-in-out infinite alternate;
+        }
+        @keyframes konami-pulse {
+            from { text-shadow: 0 0 20px #FFD500, 0 0 40px #FFD500; }
+            to   { text-shadow: 0 0 40px #FFD500, 0 0 80px #ff8800; }
+        }
+        .konami-emoji { font-size: clamp(3rem, 10vw, 6rem); animation: spin-pop 0.6s ease; }
+        @keyframes spin-pop {
+            0%   { transform: scale(0) rotate(-180deg); opacity: 0; }
+            70%  { transform: scale(1.2) rotate(10deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        .confetti-piece {
+            position: fixed;
+            width: 10px; height: 10px;
+            border-radius: 2px;
+            pointer-events: none; z-index: 99998;
+            animation: confetti-fall linear forwards;
+        }
+        @keyframes confetti-fall {
+            0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 3rem 1rem; }
+            h1 { font-size: 2rem !important; }
+            h2 { font-size: 1.5rem !important; }
+            #chat-box { width: 290px; }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Konami Overlay -->
+    <div id="konami-overlay">
+        <div class="konami-emoji">🌟</div>
+        <h2 style="margin: 1rem 0;">Você achou o segredo da PEQUI!</h2>
+        <p style="color:#aaa; font-size:1rem; text-align:center; max-width:400px; padding: 0 1rem;">
+            Poucos chegam até aqui. Você definitivamente tem feeling criativo.<br>
+            <strong style="color:#FFD500">Bora trabalhar juntos?</strong>
+        </p>
+        <a href="https://wa.me/5561992739117" target="_blank"
+           style="margin-top:1.5rem; padding:12px 28px; background:#FFD500; color:black; font-weight:700; border-radius:999px; text-decoration:none; font-size:1rem;">
+            <i class="fab fa-whatsapp" style="margin-right:8px;"></i>Fala com a PEQUI
+        </a>
+        <button onclick="document.getElementById('konami-overlay').classList.remove('show')"
+                style="margin-top:1rem; background:none; border:1px solid #444; color:#888; padding:8px 20px; border-radius:999px; cursor:pointer; font-size:0.85rem;">
+            Fechar
+        </button>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5561992739117" target="_blank" class="float-whatsapp">
+        <span class="tooltip">Fala com a PEQUI!</span>
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- AI Chat Widget -->
+    <div id="ai-chat-widget">
+        <div id="chat-box">
+            <div class="chat-header">
+                <div>
+                    <span>PEQUI IA</span><br>
+                    <small>Assistente criativo • Online agora</small>
+                </div>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="msg bot">Oi! Sou a IA da PEQUI 🌟 Tô aqui pra responder sobre nossos serviços, preços e projetos. Como posso te ajudar?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Digita sua pergunta..." maxlength="200">
+                <button id="chat-send">→</button>
+            </div>
+        </div>
+        <button id="chat-toggle" title="Chat com IA">
+            <i class="fas fa-robot"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-black bg-opacity-95 z-50 border-b border-gray-800 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold" style="font-family: 'Space Grotesk', sans-serif; color: #FFD500;">PEQUI</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-white hover:text-yellow-400 transition">Home</a>
+                <a href="#about" class="nav-link text-white hover:text-yellow-400 transition">O que é?</a>
+                <a href="#services" class="nav-link text-white hover:text-yellow-400 transition">Serviços</a>
+                <a href="#playground" class="nav-link text-white hover:text-yellow-400 transition">Playground</a>
+                <a href="#projects" class="nav-link text-white hover:text-yellow-400 transition">Projetos</a>
+                <a href="#contact" class="nav-link text-white hover:text-yellow-400 transition">Contato</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5561992739117" target="_blank" class="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-full text-sm font-bold hover:bg-green-500 transition">
+                    <i class="fab fa-whatsapp"></i> Fala com a gente
+                </a>
+                <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-black border-t border-gray-800 px-4 pb-4">
+            <a href="#home" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">Home</a>
+            <a href="#about" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">O que é?</a>
+            <a href="#services" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">Serviços</a>
+            <a href="#playground" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">Playground</a>
+            <a href="#projects" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">Projetos</a>
+            <a href="#contact" class="block py-3 text-white hover:text-yellow-400">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section flex items-center justify-center relative">
+        <div class="particles" id="particles-1" id="hero-layer-3"></div>
+        <div class="container mx-auto px-4 text-center" style="position:relative; z-index:1;">
+            <div id="hero-layer-1" class="inline-block px-4 py-1 border border-yellow-500 text-yellow-400 text-sm rounded-full mb-6 tracking-widest uppercase">Agência Digital Criativa</div>
+            <h1 id="typing-text" class="text-5xl md:text-7xl font-bold mb-6 typing-text" style="color: #FFD500;"></h1>
+            <div id="hero-layer-2">
+                <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-300">Design, código e conteúdo que têm gosto de ideia boa.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="btn-hover px-8 py-4 bg-yellow-500 text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-yellow-400 relative overflow-hidden group inline-block">
+                        <span class="relative z-10">Bora inventar algo?</span>
+                    </a>
+                    <a href="#services" class="btn-hover px-8 py-4 border border-yellow-500 text-yellow-400 font-bold rounded-full text-lg transition-all duration-300 hover:bg-yellow-500 hover:text-black inline-block">
+                        Ver serviços
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#about" class="animate-bounce text-yellow-400 text-4xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-black relative">
+        <div class="particles" id="particles-2"></div>
+        <div class="container mx-auto px-4 py-20">
+            <h2 class="text-4xl md:text-6xl font-bold mb-16 text-center" style="color: #FFD500;">O QUE É A <span class="glitch" data-text="PEQUI">PEQUI</span>?</h2>
+            <div class="max-w-4xl mx-auto text-xl md:text-2xl text-center">
+                <p class="mb-8 text-gray-200">
+                    <span class="word-hover">PEQUI</span> é um <span class="word-hover">estúdio criativo</span> sem medo do <span class="word-hover">código</span> nem da <span class="word-hover">arte</span>.
+                    Fazemos <span class="word-hover">landing pages</span> com <span class="word-hover">IA</span>, sites <span class="word-hover">performáticos</span>,
+                    imagens que <span class="word-hover">vendem</span> e ideias que <span class="word-hover">grudam</span>.
+                </p>
+                <p class="text-gray-300">
+                    Nosso DNA é <span class="word-hover">brasileiro</span>, nosso código é <span class="word-hover">universal</span>, e nossa <span class="word-hover">criatividade</span>
+                    tem o sabor marcante do <span class="word-hover">pequi</span> — forte, único e inesquecível.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto">
+                <div class="text-center p-6 border border-gray-800 rounded-xl hover:border-yellow-500 transition">
+                    <div class="text-4xl font-bold text-yellow-400 mb-2">50+</div>
+                    <div class="text-gray-400 text-sm">Projetos entregues</div>
+                </div>
+                <div class="text-center p-6 border border-gray-800 rounded-xl hover:border-yellow-500 transition">
+                    <div class="text-4xl font-bold text-yellow-400 mb-2">35%</div>
+                    <div class="text-gray-400 text-sm">Taxa de conversão média</div>
+                </div>
+                <div class="text-center p-6 border border-gray-800 rounded-xl hover:border-yellow-500 transition">
+                    <div class="text-4xl font-bold text-yellow-400 mb-2">3x</div>
+                    <div class="text-gray-400 text-sm">Mais rápido com IA</div>
+                </div>
+                <div class="text-center p-6 border border-gray-800 rounded-xl hover:border-yellow-500 transition">
+                    <div class="text-4xl font-bold text-yellow-400 mb-2">100%</div>
+                    <div class="text-gray-400 text-sm">Clientes satisfeitos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section bg-black relative overflow-hidden">
+        <div class="container mx-auto px-4 py-20">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-center" style="color: #FFD500;">O QUE A GENTE FAZ</h2>
+            <p class="text-center text-gray-400 mb-20 text-lg max-w-2xl mx-auto">Do conceito ao código — entregamos resultado com criatividade e tecnologia.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
+                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-magic"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Landing pages com IA</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Criamos páginas que convertem usando inteligência artificial para entender seu público e entregar o que ele quer ver.</p>
+                </div>
+                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
+                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-paint-brush"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Branding visual</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Desenvolvemos identidades visuais que contam histórias e criam conexões emocionais com seu público.</p>
+                </div>
+                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
+                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-code"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Sites rápidos e bonitos</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Sites que são tão rápidos quanto bonitos, porque performance também é experiência do usuário.</p>
+                </div>
+                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
+                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Estratégia de marca</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Ajudamos você a posicionar sua marca no mercado com estratégias criativas e dados concretos.</p>
+                </div>
+                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
+                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-camera"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Foto e Reels</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Produzimos conteúdo visual que engaja, desde fotos profissionais até vídeos curtos que viralizam.</p>
+                </div>
+                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
+                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-rocket"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Performance + Criatividade</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Unimos dados e criatividade para criar campanhas que não só são bonitas, mas também entregam resultados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playground Section -->
+    <section id="playground" class="section bg-black relative">
+        <div class="container mx-auto px-4 py-20 text-center">
+            <div class="inline-block px-4 py-1 border border-yellow-500 text-yellow-400 text-sm rounded-full mb-6 tracking-widest uppercase">Powered by Groq AI</div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-6" style="color: #FFD500;">Testa nossa IA criativa <span class="animate-bounce inline-block">👇</span></h2>
+            <p class="text-lg mb-12 max-w-2xl mx-auto text-gray-400">Digite o nicho do seu negócio e nossa IA gera uma estrutura de landing page personalizada em segundos.</p>
+
+            <div class="max-w-2xl mx-auto mb-6">
+                <textarea id="niche-input" class="playground-input" rows="3" placeholder="Ex: academia de musculação para mulheres acima de 40 anos..."></textarea>
+            </div>
+
+            <button id="generate-btn" class="btn-hover px-10 py-4 bg-yellow-500 text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-yellow-400 relative overflow-hidden group mb-12 inline-flex items-center gap-3">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <span id="generate-btn-text">Gerar com IA</span>
+            </button>
+
+            <div id="ai-output" class="max-w-3xl mx-auto bg-gray-900 p-8 rounded-xl border border-yellow-500 hidden text-left">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-yellow-400">Landing Page Gerada pela IA ✨</h3>
+                    <button id="copy-btn" class="px-4 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition text-sm font-bold">
+                        <i class="fas fa-copy mr-2"></i>Copiar
+                    </button>
+                </div>
+                <div id="ai-content" class="text-gray-300 text-sm leading-relaxed"></div>
+                <div id="success-message" class="mt-4 text-green-400 hidden">
+                    <i class="fas fa-check-circle mr-2"></i>Copiado!
+                </div>
+            </div>
+
+            <div id="ai-error" class="max-w-3xl mx-auto mt-6 hidden">
+                <p class="text-red-400 text-sm"><i class="fas fa-exclamation-triangle mr-2"></i><span id="error-text"></span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-black relative">
+        <div class="container mx-auto px-4 py-20">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-center" style="color: #FFD500;">Projetos que nasceram do pé de pequi</h2>
+            <p class="text-center text-gray-400 mb-20 text-lg">Cada projeto tem uma história. Clica pra saber a nossa versão.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('Esse foi punk de fazer. Mas ficou lindo.')">
+                    <div class="h-52 bg-gradient-to-r from-yellow-500 to-yellow-300 flex items-center justify-center">
+                        <span class="text-5xl">🍊</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">Marca de Sucos Naturais</h3>
+                        <p class="text-gray-400 text-sm">Branding + Site</p>
+                    </div>
+                </div>
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('O cliente queria algo diferente. A gente exagerou.')">
+                    <div class="h-52 bg-gradient-to-r from-green-600 to-green-400 flex items-center justify-center">
+                        <span class="text-5xl">🚀</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">Startup de Tecnologia</h3>
+                        <p class="text-gray-400 text-sm">Site + Conteúdo</p>
+                    </div>
+                </div>
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('Landing page que converteu 35% dos visitantes.')">
+                    <div class="h-52 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
+                        <span class="text-5xl">💼</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">Consultoria Financeira</h3>
+                        <p class="text-gray-400 text-sm">Landing Page + IA</p>
+                    </div>
+                </div>
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('O mais difícil foi convencer o cliente a arriscar.')">
+                    <div class="h-52 bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center">
+                        <span class="text-5xl">🎭</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">Teatro Experimental</h3>
+                        <p class="text-gray-400 text-sm">Identidade Visual</p>
+                    </div>
+                </div>
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('Esse site roda a 100fps. Sério.')">
+                    <div class="h-52 bg-gradient-to-r from-red-600 to-red-400 flex items-center justify-center">
+                        <span class="text-5xl">🎮</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">Estúdio de Games</h3>
+                        <p class="text-gray-400 text-sm">Site Ultra-Rápido</p>
+                    </div>
+                </div>
+                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('A IA sugeriu um conceito que ninguém aqui tinha pensado.')">
+                    <div class="h-52 bg-gradient-to-r from-pink-600 to-pink-400 flex items-center justify-center">
+                        <span class="text-5xl">🧠</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">App de Saúde Mental</h3>
+                        <p class="text-gray-400 text-sm">Branding + IA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="project-modal" class="modal hidden">
+            <div class="modal-content rounded-xl">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <p id="modal-text" class="text-xl mt-4"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-black relative">
+        <div class="container mx-auto px-4 py-20 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6" style="color: #FFD500;">Quer botar uma ideia no mundo?</h2>
+            <p class="text-lg mb-12 max-w-2xl mx-auto text-gray-400">Manda um zap ou preenche o formulário. A gente responde rapidão!</p>
+
+            <div class="max-w-xl mx-auto">
+                <a href="https://wa.me/5561992739117" target="_blank" class="zap-btn inline-flex items-center gap-3 px-10 py-5 bg-green-600 text-white font-bold rounded-full text-xl mb-12 relative overflow-hidden transition-all duration-300 hover:bg-green-500 hover:scale-105">
+                    <i class="fab fa-whatsapp text-2xl"></i> Fala com a PEQUI no Zap
+                </a>
+
+                <form id="contact-form" class="text-left">
+                    <div class="mb-5">
+                        <label for="name" class="block text-sm font-bold mb-2 text-gray-300 uppercase tracking-wide">Seu nome</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-500 transition text-white">
+                    </div>
+                    <div class="mb-5">
+                        <label for="email" class="block text-sm font-bold mb-2 text-gray-300 uppercase tracking-wide">Seu email</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-500 transition text-white">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-bold mb-2 text-gray-300 uppercase tracking-wide">Sua ideia</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-500 transition text-white resize-none"></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="btn-hover px-8 py-4 bg-yellow-500 text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-yellow-400 w-full">
+                        Manda ver!
+                    </button>
+                    <p id="form-success" class="mt-4 text-green-400 text-center hidden"><i class="fas fa-check-circle mr-2"></i>Mensagem enviada! Logo entraremos em contato.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800 relative">
+        <div class="container mx-auto px-4 text-center">
+            <a href="#" class="text-3xl font-bold mb-6 inline-block" style="font-family: 'Space Grotesk', sans-serif; color: #FFD500;">PEQUI</a>
+            <p class="glitch text-gray-400 mb-6 text-sm" data-text="Feito com código, câmera e cuscuz.">Feito com código, câmera e cuscuz.</p>
+            <div class="text-gray-600 mb-8 text-sm">
+                Criatividade é tecnologia com sotaque. © PEQUI 2025
+            </div>
+
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-500 hover:text-yellow-400 text-2xl transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-500 hover:text-yellow-400 text-2xl transition"><i class="fab fa-behance"></i></a>
+                <a href="#" class="text-gray-500 hover:text-yellow-400 text-2xl transition"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-500 hover:text-yellow-400 text-2xl transition"><i class="fab fa-linkedin"></i></a>
+            </div>
+
+            <button id="back-to-top" class="px-6 py-3 bg-gray-800 text-white rounded-full text-sm transition-all duration-300 hover:bg-gray-700 hidden">
+                <i class="fas fa-arrow-up mr-2"></i> Voltar ao topo
+            </button>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script>
+        const GROQ_MODEL = 'llama-3.3-70b-versatile';
+
+        async function callGroq(messages) {
+            const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${GROQ_API_KEY}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ model: GROQ_MODEL, messages, max_tokens: 1024, temperature: 0.8 })
+            });
+            if (!res.ok) throw new Error('Erro na API Groq: ' + res.status);
+            const data = await res.json();
+            return data.choices[0].message.content;
+        }
+
+        // Custom Cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = `${e.clientX}px`;
+            cursorDot.style.top = `${e.clientY}px`;
+            cursorOutline.style.left = `${e.clientX}px`;
+            cursorOutline.style.top = `${e.clientY}px`;
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursorDot.style.transform = 'translate(-50%,-50%) scale(3)'; });
+            el.addEventListener('mouseleave', () => { cursorDot.style.transform = 'translate(-50%,-50%) scale(1)'; });
+        });
+
+        // Scroll progress
+        window.addEventListener('scroll', () => {
+            const el = document.getElementById('scroll-progress');
+            const top = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            el.style.width = `${(top / height) * 100}%`;
+            const btn = document.getElementById('back-to-top');
+            top > 300 ? btn.classList.remove('hidden') : btn.classList.add('hidden');
+        });
+        document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Mobile Menu
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(a => {
+            a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
+        });
+
+        // Typing effect
+        new Typewriter('#typing-text', { loop: false, delay: 50 })
+            .typeString('A gente cria o que não existe.')
+            .pauseFor(1000)
+            .typeString('<br>E se já existir, a gente reinventa.')
+            .start();
+
+        // Playground - Groq AI
+        document.getElementById('generate-btn').addEventListener('click', async function () {
+            const niche = document.getElementById('niche-input').value.trim();
+            const btn = this;
+            const btnText = document.getElementById('generate-btn-text');
+            const output = document.getElementById('ai-output');
+            const content = document.getElementById('ai-content');
+            const errorDiv = document.getElementById('ai-error');
+            const errorText = document.getElementById('error-text');
+
+            if (!niche) {
+                alert('Descreve o nicho do seu negócio primeiro!');
+                return;
+            }
+
+            btn.disabled = true;
+            btnText.textContent = 'Gerando...';
+            output.classList.add('hidden');
+            errorDiv.classList.add('hidden');
+
+            try {
+                const prompt = `Você é um especialista em copywriting e marketing digital. Crie uma estrutura completa de landing page para o seguinte nicho: "${niche}".
+
+Inclua:
+1. HEADLINE principal (impactante e com benefício claro)
+2. SUBHEADLINE (complementa e aprofunda)
+3. PROPOSTA DE VALOR (3 bullet points com os principais benefícios)
+4. PROVA SOCIAL (sugestão de depoimento fictício convincente)
+5. CTA PRINCIPAL (texto do botão + cor sugerida)
+6. ELEMENTO DE URGÊNCIA (como gerar senso de urgência)
+7. GARANTIA (para reduzir objeções)
+
+Seja criativo, use linguagem que converte, e adapte o tom ao público do nicho. Responda em português brasileiro.`;
+
+                const result = await callGroq([{ role: 'user', content: prompt }]);
+                content.innerHTML = result.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong class="text-yellow-400">$1</strong>');
+                output.classList.remove('hidden');
+                output.scrollIntoView({ behavior: 'smooth' });
+            } catch (err) {
+                errorText.textContent = err.message;
+                errorDiv.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = 'Gerar com IA';
+            }
+        });
+
+        // Copy button
+        document.getElementById('copy-btn').addEventListener('click', function () {
+            const text = document.getElementById('ai-content').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const msg = document.getElementById('success-message');
+                msg.classList.remove('hidden');
+                setTimeout(() => msg.classList.add('hidden'), 3000);
+            });
+        });
+
+        // AI Chat Widget
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatBox = document.getElementById('chat-box');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        let chatHistory = [];
+
+        chatToggle.addEventListener('click', () => chatBox.classList.toggle('open'));
+
+        function appendMsg(text, type) {
+            const div = document.createElement('div');
+            div.className = `msg ${type}`;
+            div.textContent = text;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return div;
+        }
+
+        async function sendChatMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            chatInput.value = '';
+            appendMsg(text, 'user');
+
+            chatHistory.push({ role: 'user', content: text });
+
+            const typing = appendMsg('Digitando...', 'typing');
+
+            const systemPrompt = `Você é o assistente virtual da PEQUI, uma agência digital criativa brasileira. Responda de forma simpática, breve e direta sobre os serviços da agência: landing pages com IA, branding visual, sites rápidos, estratégia de marca, foto e reels, e performance criativa. Se perguntarem sobre orçamento, diga para entrar em contato pelo WhatsApp (61) 99273-9117. Mantenha respostas curtas (máx 3 frases).`;
+
+            try {
+                const messages = [
+                    { role: 'system', content: systemPrompt },
+                    ...chatHistory
+                ];
+                const reply = await callGroq(messages);
+                chatHistory.push({ role: 'assistant', content: reply });
+                typing.className = 'msg bot';
+                typing.textContent = reply;
+            } catch {
+                typing.className = 'msg bot';
+                typing.textContent = 'Ops, tive um probleminha. Tenta de novo ou chama no WhatsApp! 😅';
+            }
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        chatSend.addEventListener('click', sendChatMessage);
+        chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendChatMessage(); });
+
+        // Contact form
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.textContent = 'Enviando...';
+            btn.disabled = true;
+            setTimeout(() => {
+                document.getElementById('form-success').classList.remove('hidden');
+                btn.textContent = 'Manda ver!';
+                btn.disabled = false;
+                this.reset();
+            }, 1200);
+        });
+
+        // Modal
+        function openModal(text) {
+            const modal = document.getElementById('project-modal');
+            document.getElementById('modal-text').textContent = text;
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        window.addEventListener('click', e => { if (e.target === document.getElementById('project-modal')) closeModal(); });
+
+        // Particles
+        function createParticles(id, count = 25) {
+            const container = document.getElementById(id);
+            if (!container) return;
+            for (let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                const size = Math.random() * 3 + 2;
+                p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:float ${Math.random()*20+10}s ease-in-out ${Math.random()*5}s infinite`;
+                container.appendChild(p);
+            }
+        }
+        createParticles('particles-1');
+        createParticles('particles-2');
+
+        const style = document.createElement('style');
+        style.innerHTML = `@keyframes float{0%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(10px,10px) rotate(5deg)}50%{transform:translate(20px,5px) rotate(0deg)}75%{transform:translate(10px,0) rotate(-5deg)}100%{transform:translate(0,0) rotate(0deg)}}`;
+        document.head.appendChild(style);
+
+        // GSAP
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.section').forEach(s => {
+            gsap.from(s, { scrollTrigger: { trigger: s, start: "top 80%", toggleActions: "play none none none" }, opacity: 0, y: 50, duration: 1 });
+        });
+        gsap.utils.toArray('.ai-generator').forEach((card, i) => {
+            gsap.from(card, { scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" }, opacity: 0, x: i % 2 === 0 ? -50 : 50, duration: 0.8, delay: i * 0.1 });
+        });
+        gsap.utils.toArray('.project-card').forEach((card, i) => {
+            gsap.from(card, { scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" }, opacity: 0, scale: 0.85, duration: 0.8, delay: i * 0.1 });
+        });
+    </script>
+
+    <script>
+        /* ── 1. CURSOR TRAIL ── */
+        const TRAIL_LENGTH = 18;
+        const trail = [];
+
+        for (let i = 0; i < TRAIL_LENGTH; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'trail-dot';
+            dot.style.opacity = (1 - i / TRAIL_LENGTH) * 0.7;
+            dot.style.transform = `translate(-50%,-50%) scale(${1 - i / TRAIL_LENGTH})`;
+            document.body.appendChild(dot);
+            trail.push({ el: dot, x: -100, y: -100 });
+        }
+
+        let mouseX = -100, mouseY = -100;
+        window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+
+        (function animateTrail() {
+            let x = mouseX, y = mouseY;
+            trail.forEach((dot, i) => {
+                dot.el.style.left = x + 'px';
+                dot.el.style.top  = y + 'px';
+                const prev = trail[i - 1];
+                if (prev) { x = prev.x + (x - prev.x) * 0.6; y = prev.y + (y - prev.y) * 0.6; }
+                dot.x = parseFloat(dot.el.style.left);
+                dot.y = parseFloat(dot.el.style.top);
+            });
+            requestAnimationFrame(animateTrail);
+        })();
+
+        /* ── 2. PARALLAX 3D NO HERO ── */
+        const heroSection = document.getElementById('home');
+        const layer1 = document.getElementById('hero-layer-1');
+        const layer2 = document.getElementById('hero-layer-2');
+        const typingEl = document.getElementById('typing-text');
+
+        heroSection.addEventListener('mousemove', e => {
+            const rect = heroSection.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (e.clientX - cx) / rect.width;
+            const dy = (e.clientY - cy) / rect.height;
+
+            layer1.style.transform = `translate(${dx * -20}px, ${dy * -20}px)`;
+            typingEl.style.transform = `translate(${dx * 12}px, ${dy * 10}px)`;
+            layer2.style.transform = `translate(${dx * 6}px, ${dy * 5}px)`;
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            layer1.style.transform = '';
+            typingEl.style.transform = '';
+            layer2.style.transform = '';
+        });
+
+        /* ── 3. KONAMI CODE EASTER EGG ── */
+        const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+        let konamiIdx = 0;
+
+        document.addEventListener('keydown', e => {
+            if (e.key === KONAMI[konamiIdx]) {
+                konamiIdx++;
+                if (konamiIdx === KONAMI.length) {
+                    konamiIdx = 0;
+                    triggerKonami();
+                }
+            } else {
+                konamiIdx = e.key === KONAMI[0] ? 1 : 0;
+            }
+        });
+
+        function triggerKonami() {
+            document.getElementById('konami-overlay').classList.add('show');
+            launchConfetti();
+        }
+
+        function launchConfetti() {
+            const colors = ['#FFD500','#ff6b35','#ffffff','#00ff88','#ff3cac','#7b2fff'];
+            for (let i = 0; i < 120; i++) {
+                setTimeout(() => {
+                    const c = document.createElement('div');
+                    c.className = 'confetti-piece';
+                    c.style.left = Math.random() * 100 + 'vw';
+                    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    c.style.width  = (Math.random() * 8 + 6) + 'px';
+                    c.style.height = (Math.random() * 8 + 6) + 'px';
+                    c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                    c.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+                    c.style.animationDelay = (Math.random() * 0.8) + 's';
+                    document.body.appendChild(c);
+                    setTimeout(() => c.remove(), 4000);
+                }, i * 20);
+            }
+        }
+    </script>
+</body>
+</html>
