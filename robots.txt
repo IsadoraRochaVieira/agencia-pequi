@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://isadorarochavieira.github.io/agencia-pequi/sitemap.xml
