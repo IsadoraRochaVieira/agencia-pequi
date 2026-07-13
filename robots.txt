@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://isadorarochavieira.github.io/agencia-pequi/sitemap.xml
+Sitemap: https://agencia-pequi.vercel.app/sitemap.xml
