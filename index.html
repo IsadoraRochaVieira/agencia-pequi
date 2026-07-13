@@ -1,1039 +1,525 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEQUI | Agência Digital Criativa — Sites, Branding e IA</title>
-
-    <!-- SEO Básico -->
-    <meta name="description" content="PEQUI é uma agência digital criativa que faz landing pages com IA, branding visual, sites rápidos e estratégia de marca. DNA brasileiro, resultado universal.">
-    <meta name="keywords" content="agência digital, landing page, branding, sites, inteligência artificial, marketing digital, design, criativo, brasil">
-    <meta name="author" content="PEQUI Agência Digital">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://isadorarochavieira.github.io/agencia-pequi/">
-
-    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://isadorarochavieira.github.io/agencia-pequi/">
-    <meta property="og:title" content="PEQUI | Agência Digital Criativa">
-    <meta property="og:description" content="Design, código e conteúdo que têm gosto de ideia boa. Landing pages com IA, branding visual e sites que convertem.">
-    <meta property="og:image" content="https://isadorarochavieira.github.io/agencia-pequi/assets/pequi-tree.jpg">
-    <meta property="og:image:alt" content="Pequizeiro carregado de frutos sob o céu azul do Cerrado">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:site_name" content="PEQUI Agência Digital">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PEQUI | Agência Digital Criativa">
-    <meta name="twitter:description" content="Design, código e conteúdo que têm gosto de ideia boa.">
-    <meta name="twitter:image" content="https://isadorarochavieira.github.io/agencia-pequi/assets/pequi-tree.jpg">
-
-    <!-- Schema JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "PEQUI Agência Digital",
-      "url": "https://isadorarochavieira.github.io/agencia-pequi/",
-      "description": "Agência digital criativa especializada em landing pages com IA, branding visual, sites performáticos e estratégia de marca.",
-      "telephone": "+5561992739117",
-      "address": { "@type": "PostalAddress", "addressCountry": "BR" },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+5561992739117",
-        "contactType": "customer service",
-        "availableLanguage": "Portuguese"
-      },
-      "sameAs": ["https://github.com/IsadoraRochaVieira"],
-      "offers": [
-        { "@type": "Offer", "name": "Landing Pages com IA" },
-        { "@type": "Offer", "name": "Branding Visual" },
-        { "@type": "Offer", "name": "Sites Rápidos" },
-        { "@type": "Offer", "name": "Estratégia de Marca" }
-      ]
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#dfff00">
+  <title>PEQUI® — Ideias com polpa</title>
+  <meta name="description" content="PEQUI é um estúdio criativo brasileiro que mistura estratégia, design, código, motion e inteligência artificial para criar experiências digitais impossíveis de ignorar.">
+  <meta name="keywords" content="agência digital, estúdio criativo, Brasília, inteligência artificial, motion design, sites, branding, experiência digital">
+  <meta name="author" content="PEQUI Estúdio Criativo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://isadorarochavieira.github.io/agencia-pequi/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://isadorarochavieira.github.io/agencia-pequi/">
+  <meta property="og:title" content="PEQUI® — Ideias com polpa">
+  <meta property="og:description" content="Tecnologia com sotaque. Design com sabor. Experiências digitais impossíveis de ignorar.">
+  <meta property="og:image" content="https://isadorarochavieira.github.io/agencia-pequi/assets/pequi-tree.jpg">
+  <meta property="og:image:alt" content="Pequizeiro carregado de frutos sob o céu azul do Cerrado">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="PEQUI Estúdio Criativo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PEQUI® — Ideias com polpa">
+  <meta name="twitter:description" content="Tecnologia com sotaque. Design com sabor.">
+  <meta name="twitter:image" content="https://isadorarochavieira.github.io/agencia-pequi/assets/pequi-tree.jpg">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"PEQUI Estúdio Criativo",
+    "url":"https://isadorarochavieira.github.io/agencia-pequi/",
+    "description":"Estúdio criativo brasileiro especializado em experiências digitais, inteligência artificial, branding, sites e motion design.",
+    "telephone":"+5561992739117",
+    "areaServed":"BR",
+    "sameAs":["https://github.com/IsadoraRochaVieira"]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <style>
+    :root {
+      --acid: #dfff00;
+      --pulp: #ff5c00;
+      --leaf: #103d22;
+      --ink: #080a08;
+      --cream: #f3f0df;
+      --white: #fffef7;
+      --line: rgba(255,255,255,.18);
+      --pad: clamp(1rem, 4vw, 4.5rem);
     }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --pequi-yellow: #FFD500;
-            --dark-green: #013220;
-            --glitch-time: 0.5s;
-        }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ink); }
+    body { margin: 0; font-family: 'Manrope', sans-serif; color: var(--white); background: var(--ink); overflow-x: hidden; }
+    body.loading { overflow: hidden; }
+    ::selection { background: var(--pulp); color: var(--ink); }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
+    img, video { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin-top: 0; }
+    .mono { font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .11em; }
+    .display { font-family: 'Syne', sans-serif; text-transform: uppercase; letter-spacing: -.065em; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000;
-            color: white;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    /* Loader */
+    #loader { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; background: var(--acid); color: var(--ink); transition: clip-path 1s cubic-bezier(.77,0,.18,1); clip-path: inset(0 0 0 0); }
+    #loader.done { clip-path: inset(0 0 100% 0); pointer-events: none; }
+    .loader-word { font: 800 clamp(4rem, 18vw, 15rem)/.75 'Syne', sans-serif; letter-spacing: -.09em; }
+    .loader-meta { position: absolute; left: var(--pad); right: var(--pad); bottom: 2rem; display: flex; align-items: center; gap: 1rem; font-size: .67rem; }
+    .loader-track { flex: 1; height: 2px; background: rgba(0,0,0,.2); }
+    .loader-fill { height: 100%; width: 0; background: var(--ink); transition: width .15s linear; }
 
-        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+    /* Global UI */
+    #progress { position: fixed; inset: 0 auto auto 0; width: 0; height: 3px; background: var(--acid); z-index: 9000; }
+    #cursor { position: fixed; width: 34px; height: 34px; border: 1px solid var(--acid); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: difference; transition: width .2s, height .2s, background .2s; }
+    #cursor.active { width: 70px; height: 70px; background: rgba(223,255,0,.22); }
+    .grain { position: fixed; inset: 0; pointer-events: none; z-index: 8000; opacity: .16; background-image: repeating-radial-gradient(circle at 20% 30%, rgba(255,255,255,.18) 0 1px, transparent 1px 4px); background-size: 9px 11px; mix-blend-mode: soft-light; }
+    .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 5000; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem var(--pad); mix-blend-mode: difference; }
+    .logo { font: 800 1.45rem/1 'Syne', sans-serif; text-decoration: none; letter-spacing: -.06em; }
+    .logo sup { font: 400 .45rem 'DM Mono', monospace; vertical-align: top; margin-left: .15rem; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { text-decoration: none; font: 400 .68rem 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .1em; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -.4rem; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .3s; }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .menu-btn { display: none; width: 44px; height: 44px; border: 1px solid currentColor; border-radius: 50%; color: inherit; background: transparent; }
+    .whatsapp-rail { position: fixed; z-index: 4900; right: 1.2rem; bottom: 1.2rem; display: inline-flex; align-items: center; gap: .65rem; padding: .8rem 1rem; border-radius: 999px; background: var(--acid); color: var(--ink); text-decoration: none; font: 500 .65rem 'DM Mono', monospace; text-transform: uppercase; box-shadow: 0 8px 30px rgba(0,0,0,.3); }
+    .whatsapp-rail .dot { width: 8px; height: 8px; background: #19b65b; border-radius: 50%; animation: pulse 1.7s infinite; }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(25,182,91,0); } 0%,100% { box-shadow: 0 0 0 0 rgba(25,182,91,.45); } }
 
-        /* Cursor */
-        .cursor-dot {
-            width: 8px; height: 8px;
-            background-color: var(--pequi-yellow);
-            border-radius: 50%; position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none; z-index: 9999;
-            mix-blend-mode: difference; transition: transform 0.2s ease;
-        }
-        .cursor-outline {
-            width: 30px; height: 30px;
-            border: 2px solid var(--pequi-yellow);
-            border-radius: 50%; position: fixed;
-            transform: translate(-50%, -50%);
-            pointer-events: none; z-index: 9998;
-            mix-blend-mode: difference; transition: all 0.2s ease-out;
-        }
+    /* Hero */
+    .hero { min-height: 100svh; position: relative; display: flex; align-items: flex-end; padding: 8rem var(--pad) 4rem; isolation: isolate; overflow: hidden; background: #050805; }
+    .hero-film { position: absolute; inset: 0; z-index: -3; }
+    .hero-film video { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.22) contrast(1.08); transform: scale(1.04); }
+    .hero-film::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.06) 40%, rgba(0,0,0,.88) 95%), linear-gradient(90deg, rgba(0,0,0,.5), transparent 70%); }
+    #seed-canvas { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; mix-blend-mode: screen; opacity: .75; }
+    .hero-topline { position: absolute; top: 7rem; left: var(--pad); right: var(--pad); display: flex; justify-content: space-between; align-items: center; font-size: .62rem; }
+    .hero-topline span:last-child { text-align: right; }
+    .hero-title { position: relative; z-index: 2; font-size: clamp(4.3rem, 13.5vw, 13rem); line-height: .72; max-width: 96vw; margin: 0; color: var(--acid); text-shadow: 0 8px 50px rgba(0,0,0,.45); }
+    .hero-title .outline { color: transparent; -webkit-text-stroke: 2px var(--white); display: block; margin-left: 13vw; }
+    .hero-bottom { position: absolute; right: var(--pad); bottom: 4.5rem; z-index: 4; max-width: 25rem; display: grid; gap: 1.2rem; }
+    .hero-bottom p { font-size: clamp(.95rem, 1.35vw, 1.15rem); line-height: 1.55; margin: 0; }
+    .hero-cta { display: inline-flex; width: fit-content; align-items: center; gap: 1rem; text-decoration: none; font: 500 .68rem 'DM Mono', monospace; text-transform: uppercase; border-bottom: 1px solid var(--acid); padding-bottom: .45rem; }
+    .hero-cta span { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; color: var(--ink); background: var(--acid); }
 
-        .btn-hover:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,213,0,0.3); }
-        .btn-hover:active { transform: translateY(1px); }
+    /* Marquee */
+    .marquee { overflow: hidden; background: var(--acid); color: var(--ink); padding: .85rem 0; border-block: 1px solid var(--ink); transform: rotate(-1deg) scale(1.02); position: relative; z-index: 3; }
+    .marquee-track { display: flex; width: max-content; animation: marquee 24s linear infinite; }
+    .marquee-item { font: 700 clamp(1.1rem, 2vw, 1.8rem) 'Syne', sans-serif; text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; }
+    .marquee-item::after { content: '✳'; font-size: .8em; margin: 0 1.5rem; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
 
-        /* Glitch */
-        .glitch { position: relative; }
-        .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.8; }
-        .glitch::before { color: #0ff; z-index: -1; animation: glitch-effect var(--glitch-time) infinite; }
-        .glitch::after { color: #f0f; z-index: -2; animation: glitch-effect var(--glitch-time) infinite reverse; }
-        @keyframes glitch-effect {
-            0% { transform: translate(0); } 20% { transform: translate(-3px, 3px); }
-            40% { transform: translate(-3px, -3px); } 60% { transform: translate(3px, 3px); }
-            80% { transform: translate(3px, -3px); } 100% { transform: translate(0); }
-        }
+    /* Manifesto */
+    .manifesto { min-height: 140vh; padding: 10rem var(--pad); display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(2rem,7vw,8rem); background: var(--cream); color: var(--ink); position: relative; }
+    .manifesto-media { height: min(72vh, 760px); position: sticky; top: 12vh; overflow: hidden; border-radius: 50% 50% 1.5rem 1.5rem; }
+    .manifesto-media img { width: 100%; height: 120%; object-fit: cover; object-position: center; transform: translateY(-8%); }
+    .manifesto-number { position: absolute; top: 1.3rem; left: 1.3rem; z-index: 2; background: var(--acid); border-radius: 50%; width: 3.2rem; height: 3.2rem; display: grid; place-items: center; font-size: .7rem; }
+    .manifesto-copy { padding-top: 10vh; }
+    .eyebrow { font: 500 .66rem 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .14em; display: flex; align-items: center; gap: .8rem; margin-bottom: 2rem; }
+    .eyebrow::before { content: ''; width: 2.3rem; height: 1px; background: currentColor; }
+    .manifesto h2 { font-size: clamp(3.4rem, 7.7vw, 8.5rem); line-height: .82; margin-bottom: 3.5rem; }
+    .manifesto h2 em { font-style: normal; color: var(--pulp); }
+    .manifesto-lead { font-size: clamp(1.15rem, 2.1vw, 1.75rem); line-height: 1.5; max-width: 38rem; }
+    .manifesto-note { margin-top: 4rem; display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; max-width: 33rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,.25); font-size: .82rem; line-height: 1.65; }
 
-        .word-hover:hover { color: var(--pequi-yellow); text-decoration: underline; text-decoration-color: var(--pequi-yellow); cursor: pointer; }
+    /* Photo sequence */
+    .field { padding: 10rem 0 11rem; overflow: hidden; background: var(--leaf); }
+    .field-head { padding: 0 var(--pad); display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 2rem; margin-bottom: 5rem; }
+    .field h2 { font-size: clamp(4rem, 10vw, 10rem); line-height: .78; margin-bottom: 0; color: var(--acid); }
+    .field-intro { max-width: 30rem; justify-self: end; font-size: 1rem; line-height: 1.6; }
+    .photo-river { display: flex; gap: clamp(1rem, 2vw, 2rem); width: max-content; padding: 2rem var(--pad); will-change: transform; }
+    .photo-card { width: clamp(240px, 26vw, 430px); height: clamp(330px, 39vw, 610px); flex: 0 0 auto; overflow: hidden; position: relative; border-radius: 1rem; background: #111; transform-origin: center; }
+    .photo-card:nth-child(even) { margin-top: 6rem; }
+    .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .5s; }
+    .photo-card:hover img { transform: scale(1.08); filter: saturate(1.25); }
+    .photo-card figcaption { position: absolute; inset: auto 1rem 1rem; z-index: 2; color: white; font-size: .62rem; }
+    .photo-card::after { content: ''; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.72)); }
 
-        .scroll-progress { position: fixed; top: 0; left: 0; height: 4px; background: var(--pequi-yellow); z-index: 9999; transition: width 0.1s; }
+    /* Services */
+    .services { background: var(--pulp); color: var(--ink); padding: 10rem var(--pad); }
+    .services-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 5rem; }
+    .services h2 { font-size: clamp(4rem, 10vw, 10rem); line-height: .75; margin: 0; }
+    .services-head p { max-width: 25rem; line-height: 1.55; }
+    .service-list { border-top: 2px solid var(--ink); }
+    .service { display: grid; grid-template-columns: 5rem 1fr auto; align-items: center; gap: 1rem; padding: 2rem 0; border-bottom: 2px solid var(--ink); position: relative; overflow: hidden; transition: color .35s, padding .35s; }
+    .service::before { content: ''; position: absolute; inset: 0; background: var(--acid); transform: translateY(101%); transition: transform .4s cubic-bezier(.77,0,.18,1); }
+    .service:hover::before { transform: translateY(0); }
+    .service:hover { padding-inline: 1.2rem; }
+    .service > * { position: relative; z-index: 1; }
+    .service-num { font: 400 .72rem 'DM Mono', monospace; }
+    .service h3 { font: 700 clamp(1.8rem, 4vw, 4.6rem)/1 'Syne', sans-serif; text-transform: uppercase; letter-spacing: -.04em; margin: 0; }
+    .service p { max-width: 26rem; font-size: .8rem; line-height: 1.5; margin: 0; text-align: right; }
 
-        .project-card { transition: all 0.3s ease; transform-origin: center; }
-        .project-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,213,0,0.2); }
+    /* Work */
+    .work { padding: 10rem var(--pad); background: var(--ink); }
+    .work-head { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 2rem; margin-bottom: 6rem; }
+    .work h2 { font-size: clamp(4rem, 10vw, 10rem); line-height: .76; margin: 0; color: var(--acid); }
+    .work-head p { justify-self: end; max-width: 30rem; line-height: 1.6; color: #b9b9b0; }
+    .case { margin-bottom: 8rem; }
+    .case-top { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
+    .case-title { font-size: clamp(2rem, 4.5vw, 5rem); line-height: .95; margin: 0; }
+    .case-tags { text-align: right; color: #999; font-size: .62rem; }
+    .browser-shell { position: relative; aspect-ratio: 16/9; border: 1px solid #373a35; border-radius: 1.3rem; overflow: hidden; background: #151713; transform: perspective(1200px) rotateX(0deg); transition: transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s; }
+    .browser-shell:hover { transform: perspective(1200px) rotateX(1.5deg) translateY(-8px); box-shadow: 0 35px 90px rgba(0,0,0,.5); }
+    .browser-bar { height: 3.2rem; display: flex; align-items: center; gap: .45rem; padding: 0 1rem; border-bottom: 1px solid #30332e; background: #111310; }
+    .browser-dot { width: .55rem; height: .55rem; border-radius: 50%; background: #454842; }
+    .browser-address { margin-left: .7rem; color: #71766c; font: 400 .57rem 'DM Mono', monospace; }
+    .browser-viewport { --preview-scale: .72; position: absolute; inset: 3.2rem 0 0; overflow: hidden; }
+    .browser-viewport iframe { width: calc(100% / var(--preview-scale)); height: calc(100% / var(--preview-scale)); border: 0; transform: scale(var(--preview-scale)); transform-origin: top left; pointer-events: none; background: white; }
+    .case-link { position: absolute; inset: 0; z-index: 3; }
+    .case-link span { position: absolute; right: 1rem; bottom: 1rem; width: 5rem; height: 5rem; border-radius: 50%; display: grid; place-items: center; background: var(--acid); color: var(--ink); font: 500 .6rem 'DM Mono', monospace; text-align: center; text-transform: uppercase; transform: scale(0); transition: transform .35s; }
+    .browser-shell:hover .case-link span { transform: scale(1); }
+    .case:nth-child(even) .browser-shell { margin-left: 8vw; }
 
-        .section { min-height: 100vh; padding: 5rem 2rem; position: relative; overflow: hidden; }
+    /* AI Lab */
+    .lab { min-height: 100vh; padding: 10rem var(--pad); background: var(--acid); color: var(--ink); position: relative; overflow: hidden; }
+    .lab-orbit { position: absolute; width: 52vw; aspect-ratio: 1; border: 1px solid rgba(0,0,0,.2); border-radius: 50%; right: -15vw; top: -12vw; animation: orbit 18s linear infinite; }
+    .lab-orbit::before, .lab-orbit::after { content: ''; position: absolute; border-radius: 50%; background: var(--pulp); }
+    .lab-orbit::before { width: 17%; aspect-ratio: 1; top: 5%; left: 15%; }
+    .lab-orbit::after { width: 8%; aspect-ratio: 1; bottom: 14%; right: 10%; background: var(--leaf); }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    .lab-grid { position: relative; z-index: 2; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(3rem,8vw,9rem); align-items: start; }
+    .lab h2 { font-size: clamp(4rem, 9vw, 9rem); line-height: .77; margin-bottom: 2rem; }
+    .lab-copy { max-width: 30rem; line-height: 1.6; }
+    .lab-panel { margin-top: 3rem; border: 2px solid var(--ink); background: rgba(243,240,223,.72); backdrop-filter: blur(12px); padding: clamp(1rem, 3vw, 2.2rem); box-shadow: 12px 12px 0 var(--ink); }
+    .lab-label { display: flex; justify-content: space-between; margin-bottom: 1.5rem; font-size: .6rem; }
+    .lab textarea { width: 100%; min-height: 155px; resize: vertical; border: 0; border-bottom: 2px solid var(--ink); background: transparent; padding: 1rem 0; outline: none; font-size: clamp(1.1rem,2vw,1.55rem); line-height: 1.4; color: var(--ink); }
+    .lab textarea::placeholder { color: rgba(8,10,8,.5); }
+    .lab-actions { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+    .lab button { border: 2px solid var(--ink); background: var(--ink); color: var(--acid); padding: 1rem 1.5rem; cursor: pointer; text-transform: uppercase; font: 500 .7rem 'DM Mono', monospace; transition: transform .2s, box-shadow .2s; }
+    .lab button:hover { transform: translate(-3px,-3px); box-shadow: 5px 5px 0 var(--pulp); }
+    .lab button:disabled { opacity: .55; cursor: wait; }
+    .lab-status { font-size: .58rem; }
+    #lab-result { display: none; margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--ink); }
+    #lab-result.show { display: block; animation: result-in .65s cubic-bezier(.2,.8,.2,1); }
+    @keyframes result-in { from { opacity: 0; transform: translateY(20px); } }
+    .result-kicker { font-size: .58rem; margin-bottom: .7rem; }
+    .result-title { font: 700 clamp(2rem,4vw,4rem)/.95 'Syne', sans-serif; text-transform: uppercase; letter-spacing: -.05em; }
+    .result-text { line-height: 1.6; max-width: 38rem; }
 
-        .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        .particle { position: absolute; background-color: var(--pequi-yellow); border-radius: 50%; opacity: 0.3; }
+    /* Contact */
+    .contact { min-height: 100svh; padding: 9rem var(--pad) 3rem; background: var(--cream); color: var(--ink); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+    .contact h2 { font-size: clamp(4.2rem, 13vw, 14rem); line-height: .72; margin-bottom: 5rem; }
+    .contact h2 span { display: block; color: var(--pulp); margin-left: 12vw; }
+    .contact-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 5rem; align-items: start; }
+    .contact-note { line-height: 1.6; max-width: 24rem; }
+    .contact-form { display: grid; gap: 1.4rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .field-wrap label { display: block; font: 500 .58rem 'DM Mono', monospace; text-transform: uppercase; margin-bottom: .5rem; }
+    .field-wrap input, .field-wrap textarea { width: 100%; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: .8rem 0; outline: none; color: var(--ink); }
+    .field-wrap textarea { min-height: 90px; resize: vertical; }
+    .contact-submit { justify-self: end; width: 9rem; height: 9rem; border-radius: 50%; border: 0; background: var(--ink); color: var(--acid); text-transform: uppercase; font: 500 .67rem 'DM Mono', monospace; cursor: pointer; transition: transform .35s, background .35s; }
+    .contact-submit:hover { transform: rotate(-8deg) scale(1.07); background: var(--leaf); }
+    footer { margin-top: 7rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,.3); display: flex; justify-content: space-between; align-items: end; gap: 2rem; font-size: .62rem; }
+    footer .footer-logo { font: 800 clamp(2.5rem,6vw,6rem)/.8 'Syne', sans-serif; letter-spacing: -.08em; }
 
-        /* Cinematic hero */
-        #home { min-height: 100svh; isolation: isolate; background: #020603; }
-        .hero-media { position: absolute; inset: 0; z-index: -3; overflow: hidden; }
-        .hero-media video {
-            width: 100%; height: 100%; object-fit: cover; object-position: center;
-            filter: saturate(1.15) contrast(1.05); transform: scale(1.02);
-        }
-        .hero-media::before {
-            content: ''; position: absolute; inset: 0; z-index: 1;
-            background:
-                radial-gradient(circle at 50% 48%, rgba(0,0,0,.08) 0, rgba(0,0,0,.34) 52%, rgba(0,0,0,.8) 100%),
-                linear-gradient(180deg, rgba(0,0,0,.38) 0%, rgba(0,0,0,.1) 45%, #000 100%);
-        }
-        .hero-media::after {
-            content: ''; position: absolute; inset: 0; z-index: 2; opacity: .13; pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
-        }
-        .hero-copy { text-shadow: 0 2px 28px rgba(0,0,0,.7); }
-        .hero-film-label {
-            position: absolute; left: 2rem; bottom: 2rem; z-index: 4;
-            display: flex; align-items: center; gap: .65rem; color: rgba(255,255,255,.72);
-            font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
-        }
-        .hero-film-label::before { content: ''; width: 2.5rem; height: 1px; background: var(--pequi-yellow); }
+    .reveal { opacity: 0; transform: translateY(45px); }
+    .clip-reveal { clip-path: inset(0 0 100% 0); }
 
-        /* Brazilian origin editorial block */
-        .origin-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 5rem; align-items: center; }
-        .origin-photo { position: relative; min-height: 560px; border-radius: 2rem; overflow: hidden; }
-        .origin-photo img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
-        .origin-photo:hover img { transform: scale(1.035); }
-        .origin-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,.8)); }
-        .origin-caption { position: absolute; left: 1.5rem; bottom: 1.5rem; z-index: 2; }
-        .origin-kicker { color: var(--pequi-yellow); font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; }
-        .origin-title { font-size: clamp(2.5rem, 5vw, 5.5rem); line-height: .92; letter-spacing: -.05em; }
-        .origin-copy { font-size: clamp(1.05rem, 1.7vw, 1.35rem); line-height: 1.75; color: #d1d5db; }
-
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
-        .modal-content { background-color: #000; border: 2px solid var(--pequi-yellow); padding: 2rem; max-width: 80%; position: relative; }
-        .close-modal { position: absolute; top: 10px; right: 10px; color: white; font-size: 1.5rem; cursor: pointer; }
-
-        .ai-generator { background: linear-gradient(45deg, #000, var(--dark-green)); border: 1px solid var(--pequi-yellow); transition: all 0.3s ease; }
-        .ai-generator:hover { box-shadow: 0 0 20px var(--pequi-yellow); }
-
-        .typing-text { border-right: 2px solid var(--pequi-yellow); animation: blink-caret 0.75s step-end infinite; }
-        @keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: var(--pequi-yellow); } }
-
-        .nav-link { position: relative; }
-        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background-color: var(--pequi-yellow); transition: width 0.3s ease; }
-        .nav-link:hover::after { width: 100%; }
-
-        .zap-btn { position: relative; overflow: hidden; }
-        .zap-btn::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(to bottom right, transparent, transparent, transparent, var(--pequi-yellow), transparent, transparent, transparent);
-            transform: rotate(0deg); transition: transform 0.5s ease;
-        }
-        .zap-btn:hover::before { transform: rotate(180deg); }
-
-        .rotate-text { animation: rotate 10s linear infinite; }
-        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        /* Mobile Menu */
-        #mobile-menu { display: none; }
-        #mobile-menu.open { display: block; }
-
-        /* Floating WhatsApp */
-        .float-whatsapp {
-            position: fixed; bottom: 24px; right: 24px; z-index: 9000;
-            width: 60px; height: 60px; background: #25D366;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.5);
-            transition: all 0.3s ease; cursor: pointer; text-decoration: none;
-        }
-        .float-whatsapp:hover { transform: scale(1.15); box-shadow: 0 8px 30px rgba(37,211,102,0.7); }
-        .float-whatsapp i { color: white; font-size: 28px; }
-        .float-whatsapp .tooltip {
-            position: absolute; right: 70px; white-space: nowrap;
-            background: #1a1a1a; color: white; padding: 6px 12px;
-            border-radius: 8px; font-size: 13px; opacity: 0;
-            transition: opacity 0.2s; pointer-events: none; border: 1px solid #333;
-        }
-        .float-whatsapp:hover .tooltip { opacity: 1; }
-
-        /* AI Chat Widget */
-        #ai-chat-widget {
-            position: fixed; bottom: 100px; right: 24px; z-index: 8999;
-        }
-        #chat-toggle {
-            width: 56px; height: 56px; background: var(--pequi-yellow);
-            border-radius: 50%; border: none; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 20px rgba(255,213,0,0.4);
-            transition: all 0.3s ease;
-        }
-        #chat-toggle:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(255,213,0,0.6); }
-        #chat-toggle i { color: black; font-size: 22px; }
-        #chat-box {
-            display: none; position: absolute; bottom: 70px; right: 0;
-            width: 340px; background: #111; border: 1px solid #FFD500;
-            border-radius: 16px; overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-        }
-        #chat-box.open { display: flex; flex-direction: column; }
-        .chat-header {
-            background: #FFD500; padding: 14px 18px;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .chat-header span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: black; font-size: 15px; }
-        .chat-header small { color: #333; font-size: 11px; }
-        .chat-messages { height: 280px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
-        .chat-messages::-webkit-scrollbar { width: 4px; }
-        .chat-messages::-webkit-scrollbar-track { background: #000; }
-        .chat-messages::-webkit-scrollbar-thumb { background: #FFD500; border-radius: 2px; }
-        .msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; }
-        .msg.bot { background: #1a1a1a; border: 1px solid #333; color: #eee; align-self: flex-start; border-bottom-left-radius: 4px; }
-        .msg.user { background: #FFD500; color: black; align-self: flex-end; border-bottom-right-radius: 4px; font-weight: 500; }
-        .msg.typing { background: #1a1a1a; border: 1px solid #333; color: #888; align-self: flex-start; }
-        .chat-input-area { padding: 12px; border-top: 1px solid #222; display: flex; gap: 8px; }
-        .chat-input-area input {
-            flex: 1; background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
-            padding: 10px 12px; color: white; font-size: 13px; outline: none;
-            transition: border-color 0.2s;
-        }
-        .chat-input-area input:focus { border-color: #FFD500; }
-        .chat-input-area button {
-            background: #FFD500; color: black; border: none; border-radius: 8px;
-            padding: 10px 14px; cursor: pointer; font-weight: 700; font-size: 13px;
-            transition: background 0.2s;
-        }
-        .chat-input-area button:hover { background: #ffc700; }
-
-        /* Playground */
-        .playground-input {
-            background: #111; border: 1px solid #444; border-radius: 12px;
-            padding: 16px; color: white; font-size: 15px; width: 100%;
-            outline: none; transition: border-color 0.3s; resize: none;
-            font-family: 'Inter', sans-serif;
-        }
-        .playground-input:focus { border-color: var(--pequi-yellow); }
-        #ai-output pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'Inter', sans-serif; }
-
-        /* Cursor trail */
-        .trail-dot {
-            position: fixed;
-            width: 6px; height: 6px;
-            background: var(--pequi-yellow);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9990;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Parallax hero layers */
-        #hero-layer-1, #hero-layer-2, #hero-layer-3 {
-            transition: transform 0.05s linear;
-            will-change: transform;
-        }
-
-        /* Konami overlay */
-        #konami-overlay {
-            display: none;
-            position: fixed; inset: 0; z-index: 99999;
-            background: rgba(0,0,0,0.92);
-            align-items: center; justify-content: center;
-            flex-direction: column;
-        }
-        #konami-overlay.show { display: flex; }
-        #konami-overlay h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.5rem, 5vw, 3rem);
-            color: #FFD500; text-align: center;
-            animation: konami-pulse 1s ease-in-out infinite alternate;
-        }
-        @keyframes konami-pulse {
-            from { text-shadow: 0 0 20px #FFD500, 0 0 40px #FFD500; }
-            to   { text-shadow: 0 0 40px #FFD500, 0 0 80px #ff8800; }
-        }
-        .konami-emoji { font-size: clamp(3rem, 10vw, 6rem); animation: spin-pop 0.6s ease; }
-        @keyframes spin-pop {
-            0%   { transform: scale(0) rotate(-180deg); opacity: 0; }
-            70%  { transform: scale(1.2) rotate(10deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        .confetti-piece {
-            position: fixed;
-            width: 10px; height: 10px;
-            border-radius: 2px;
-            pointer-events: none; z-index: 99998;
-            animation: confetti-fall linear forwards;
-        }
-        @keyframes confetti-fall {
-            0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-        }
-
-        @media (max-width: 768px) {
-            .section { padding: 3rem 1rem; }
-            h1 { font-size: 2rem !important; }
-            h2 { font-size: 1.5rem !important; }
-            #chat-box { width: 290px; }
-            .hero-film-label { left: 1rem; bottom: 1rem; }
-            .origin-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .origin-photo { min-height: 420px; order: -1; border-radius: 1.4rem; }
-            .origin-title { font-size: 3.2rem !important; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .trail-dot, .cursor-dot, .cursor-outline { display: none; }
-            .hero-media video { display: none; }
-            .hero-media { background: url('assets/video-poster.jpg') center/cover no-repeat; }
-            .origin-photo img { transition: none; }
-        }
-    </style>
+    @media (max-width: 980px) {
+      #cursor { display: none; }
+      .nav-links { position: fixed; inset: 0; background: var(--acid); color: var(--ink); display: flex; flex-direction: column; justify-content: center; gap: 2rem; transform: translateY(-105%); transition: transform .65s cubic-bezier(.77,0,.18,1); mix-blend-mode: normal; }
+      .nav-links.open { transform: translateY(0); }
+      .nav-links a { font: 700 2rem 'Syne', sans-serif; }
+      .menu-btn { display: block; position: relative; z-index: 2; }
+      .hero { padding-bottom: 3rem; align-items: center; }
+      .hero-title { font-size: clamp(4rem, 17vw, 8rem); }
+      .hero-title .outline { margin-left: 6vw; }
+      .hero-bottom { left: var(--pad); right: auto; bottom: 2.6rem; max-width: 20rem; }
+      .manifesto { grid-template-columns: 1fr; min-height: auto; }
+      .manifesto-media { position: relative; top: 0; height: 68vh; }
+      .manifesto-copy { padding-top: 2rem; }
+      .field-head, .work-head { grid-template-columns: 1fr; }
+      .field-intro, .work-head p { justify-self: start; }
+      .services-head { display: block; }
+      .services-head p { margin-top: 2rem; }
+      .service { grid-template-columns: 3rem 1fr; }
+      .service p { grid-column: 2; text-align: left; }
+      .browser-viewport { --preview-scale: .52; }
+      .case:nth-child(even) .browser-shell { margin-left: 0; }
+      .lab-grid, .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .nav { padding-top: .9rem; }
+      .whatsapp-rail span:not(.dot) { display: none; }
+      .whatsapp-rail { width: 3.2rem; height: 3.2rem; justify-content: center; padding: 0; }
+      .hero-topline span:last-child { display: none; }
+      .hero-bottom p { display: none; }
+      .hero-title { font-size: 22vw; line-height: .76; }
+      .hero-title .outline { -webkit-text-stroke-width: 1px; }
+      .manifesto, .services, .work, .lab, .contact { padding-top: 7rem; padding-bottom: 7rem; }
+      .photo-card { width: 72vw; height: 105vw; }
+      .service { padding: 1.5rem 0; }
+      .service p { display: none; }
+      .case { margin-bottom: 5rem; }
+      .case-top { align-items: start; }
+      .case-tags { max-width: 7rem; }
+      .browser-shell { aspect-ratio: 4/3; }
+      .browser-viewport { --preview-scale: .34; }
+      .lab-panel { box-shadow: 7px 7px 0 var(--ink); }
+      .lab-actions { align-items: flex-end; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-submit { width: 7rem; height: 7rem; }
+      footer { flex-direction: column; align-items: start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      #seed-canvas, #cursor { display: none; }
+      .hero-film video { display: none; }
+      .hero-film { background: url('assets/video-poster.jpg') center/cover; }
+      .reveal { opacity: 1; transform: none; }
+      .clip-reveal { clip-path: none; }
+    }
+  </style>
 </head>
-<body class="relative">
-    <!-- Konami Overlay -->
-    <div id="konami-overlay">
-        <div class="konami-emoji">🌟</div>
-        <h2 style="margin: 1rem 0;">Você achou o segredo da PEQUI!</h2>
-        <p style="color:#aaa; font-size:1rem; text-align:center; max-width:400px; padding: 0 1rem;">
-            Poucos chegam até aqui. Você definitivamente tem feeling criativo.<br>
-            <strong style="color:#FFD500">Bora trabalhar juntos?</strong>
-        </p>
-        <a href="https://wa.me/5561992739117" target="_blank"
-           style="margin-top:1.5rem; padding:12px 28px; background:#FFD500; color:black; font-weight:700; border-radius:999px; text-decoration:none; font-size:1rem;">
-            <i class="fab fa-whatsapp" style="margin-right:8px;"></i>Fala com a PEQUI
-        </a>
-        <button onclick="document.getElementById('konami-overlay').classList.remove('show')"
-                style="margin-top:1rem; background:none; border:1px solid #444; color:#888; padding:8px 20px; border-radius:999px; cursor:pointer; font-size:0.85rem;">
-            Fechar
-        </button>
+<body class="loading">
+  <div id="loader" aria-hidden="true">
+    <div class="loader-word">PEQUI</div>
+    <div class="loader-meta mono"><span>Plantando ideias</span><div class="loader-track"><div class="loader-fill"></div></div><span id="loader-count">00</span></div>
+  </div>
+  <div id="progress"></div>
+  <div id="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <a class="logo" href="#inicio" aria-label="PEQUI, voltar ao início">PEQUI<sup>®</sup></a>
+    <div class="nav-links" id="nav-links">
+      <a href="#manifesto">Manifesto</a>
+      <a href="#servicos">O que fazemos</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#laboratorio">Laboratório IA</a>
+      <a href="#contato">Contato</a>
     </div>
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false">＋</button>
+  </nav>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+  <a class="whatsapp-rail magnetic" href="https://wa.me/5561992739117?text=Oi%2C%20PEQUI!%20Quero%20tirar%20uma%20ideia%20do%20papel." target="_blank" rel="noopener noreferrer">
+    <span class="dot"></span><span>Pequi online · chama no zap</span>
+  </a>
 
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" id="scroll-progress"></div>
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/5561992739117" target="_blank" class="float-whatsapp">
-        <span class="tooltip">Fala com a PEQUI!</span>
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- AI Chat Widget -->
-    <div id="ai-chat-widget">
-        <div id="chat-box">
-            <div class="chat-header">
-                <div>
-                    <span>PEQUI IA</span><br>
-                    <small>Assistente criativo • Online agora</small>
-                </div>
-            </div>
-            <div class="chat-messages" id="chat-messages">
-                <div class="msg bot">Oi! Sou a IA da PEQUI 🌟 Tô aqui pra responder sobre nossos serviços, preços e projetos. Como posso te ajudar?</div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Digita sua pergunta..." maxlength="200">
-                <button id="chat-send">→</button>
-            </div>
-        </div>
-        <button id="chat-toggle" title="Chat com IA">
-            <i class="fas fa-robot"></i>
-        </button>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full bg-black bg-opacity-95 z-50 border-b border-gray-800 backdrop-blur-sm">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold" style="font-family: 'Space Grotesk', sans-serif; color: #FFD500;">PEQUI</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link text-white hover:text-yellow-400 transition">Home</a>
-                <a href="#about" class="nav-link text-white hover:text-yellow-400 transition">O que é?</a>
-                <a href="#services" class="nav-link text-white hover:text-yellow-400 transition">Serviços</a>
-                <a href="#playground" class="nav-link text-white hover:text-yellow-400 transition">Playground</a>
-                <a href="#projects" class="nav-link text-white hover:text-yellow-400 transition">Projetos</a>
-                <a href="#contact" class="nav-link text-white hover:text-yellow-400 transition">Contato</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/5561992739117" target="_blank" class="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-full text-sm font-bold hover:bg-green-500 transition">
-                    <i class="fab fa-whatsapp"></i> Fala com a gente
-                </a>
-                <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden bg-black border-t border-gray-800 px-4 pb-4">
-            <a href="#home" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">Home</a>
-            <a href="#about" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">O que é?</a>
-            <a href="#services" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">Serviços</a>
-            <a href="#playground" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">Playground</a>
-            <a href="#projects" class="block py-3 text-white hover:text-yellow-400 border-b border-gray-800">Projetos</a>
-            <a href="#contact" class="block py-3 text-white hover:text-yellow-400">Contato</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="section flex items-center justify-center relative">
-        <div class="hero-media" aria-hidden="true">
-            <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/video-poster.jpg">
-                <source src="assets/pequi-film.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="particles" id="particles-1"></div>
-        <div class="container mx-auto px-4 text-center hero-copy" style="position:relative; z-index:1;">
-            <div id="hero-layer-1" class="inline-block px-4 py-1 border border-yellow-500 text-yellow-400 text-sm rounded-full mb-6 tracking-widest uppercase">Agência Digital Criativa</div>
-            <h1 id="typing-text" class="text-5xl md:text-7xl font-bold mb-6 typing-text" style="color: #FFD500;"></h1>
-            <div id="hero-layer-2">
-                <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-300">Design, código e conteúdo que têm gosto de ideia boa.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#contact" class="btn-hover px-8 py-4 bg-yellow-500 text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-yellow-400 relative overflow-hidden group inline-block">
-                        <span class="relative z-10">Bora inventar algo?</span>
-                    </a>
-                    <a href="#services" class="btn-hover px-8 py-4 border border-yellow-500 text-yellow-400 font-bold rounded-full text-lg transition-all duration-300 hover:bg-yellow-500 hover:text-black inline-block">
-                        Ver serviços
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
-            <a href="#about" class="animate-bounce text-yellow-400 text-4xl">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-        <div class="hero-film-label">Manifesto visual · Cerrado em movimento</div>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-film" aria-hidden="true">
+        <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/video-poster.jpg">
+          <source src="assets/pequi-film.mp4" type="video/mp4">
+        </video>
+      </div>
+      <canvas id="seed-canvas" aria-hidden="true"></canvas>
+      <div class="hero-topline mono"><span>Estúdio criativo · BSB / Brasil</span><span>Estratégia · Design · Código · IA</span></div>
+      <h1 class="hero-title display" aria-label="Ideias com polpa"><span>Ideias</span><span class="outline">com polpa.</span></h1>
+      <div class="hero-bottom">
+        <p>A gente transforma tecnologia em experiência — daquelas que o dedo para, o olho cresce e a ideia fica.</p>
+        <a class="hero-cta magnetic" href="#projetos">Sentir o que fazemos <span>↓</span></a>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section bg-black relative">
-        <div class="particles" id="particles-2"></div>
-        <div class="container mx-auto px-4 py-20">
-            <div class="origin-grid">
-                <figure class="origin-photo">
-                    <img src="assets/pequi-tree.jpg" alt="Galhos de um pequizeiro carregados de frutos sob o céu azul do Cerrado" loading="lazy" width="1024" height="1024">
-                    <figcaption class="origin-caption">
-                        <div class="origin-kicker">Nossa raiz</div>
-                        <div class="text-white font-bold text-xl mt-1">Cerrado brasileiro</div>
-                    </figcaption>
-                </figure>
-                <div>
-                    <div class="origin-kicker mb-5">Criatividade com origem</div>
-                    <h2 class="origin-title mb-8" style="color: #FFD500;">FORTE.<br>ÚNICA.<br><span class="glitch" data-text="PEQUI.">PEQUI.</span></h2>
-                    <p class="origin-copy mb-6">
-                        Somos um <span class="word-hover">estúdio criativo</span> que mistura estratégia, design, código e inteligência artificial para transformar ideias em marcas vivas.
-                    </p>
-                    <p class="origin-copy">
-                        Nosso DNA é <span class="word-hover">brasileiro</span>, nosso código é universal e nossa criatividade carrega o sabor do Cerrado: impossível passar despercebida.
-                    </p>
-                </div>
-            </div>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track">
+      <div class="marquee-item">Design que provoca</div><div class="marquee-item">Código com sotaque</div><div class="marquee-item">IA com intenção</div><div class="marquee-item">Movimento que conta</div>
+      <div class="marquee-item">Design que provoca</div><div class="marquee-item">Código com sotaque</div><div class="marquee-item">IA com intenção</div><div class="marquee-item">Movimento que conta</div>
+    </div></div>
 
-            <!-- Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto">
-                <div class="text-center p-6 border border-gray-800 rounded-xl hover:border-yellow-500 transition">
-                    <div class="text-4xl font-bold text-yellow-400 mb-2">50+</div>
-                    <div class="text-gray-400 text-sm">Projetos entregues</div>
-                </div>
-                <div class="text-center p-6 border border-gray-800 rounded-xl hover:border-yellow-500 transition">
-                    <div class="text-4xl font-bold text-yellow-400 mb-2">35%</div>
-                    <div class="text-gray-400 text-sm">Taxa de conversão média</div>
-                </div>
-                <div class="text-center p-6 border border-gray-800 rounded-xl hover:border-yellow-500 transition">
-                    <div class="text-4xl font-bold text-yellow-400 mb-2">3x</div>
-                    <div class="text-gray-400 text-sm">Mais rápido com IA</div>
-                </div>
-                <div class="text-center p-6 border border-gray-800 rounded-xl hover:border-yellow-500 transition">
-                    <div class="text-4xl font-bold text-yellow-400 mb-2">100%</div>
-                    <div class="text-gray-400 text-sm">Clientes satisfeitos</div>
-                </div>
-            </div>
-        </div>
+    <section class="manifesto" id="manifesto">
+      <figure class="manifesto-media clip-reveal">
+        <span class="manifesto-number mono">01</span>
+        <img src="assets/pequi-tree-real.jpg" alt="Galhos de pequizeiro carregados de frutos no Cerrado" width="1024" height="768">
+      </figure>
+      <div class="manifesto-copy">
+        <div class="eyebrow reveal">Um estúdio do Cerrado para o mundo</div>
+        <h2 class="display reveal">Normal<br>não deixa<br><em>marca.</em></h2>
+        <p class="manifesto-lead reveal">A PEQUI existe para dar forma ao que ainda não existe. Misturamos pensamento estratégico, direção de arte, motion e inteligência artificial até a tecnologia deixar de parecer ferramenta — e virar sensação.</p>
+        <div class="manifesto-note reveal"><span class="mono">DNA</span><p>Brasileiro na coragem, universal na execução. Como o pequi: por fora, matéria bruta; por dentro, uma cor impossível de esquecer.</p></div>
+      </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section bg-black relative overflow-hidden">
-        <div class="container mx-auto px-4 py-20">
-            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-center" style="color: #FFD500;">O QUE A GENTE FAZ</h2>
-            <p class="text-center text-gray-400 mb-20 text-lg max-w-2xl mx-auto">Do conceito ao código — entregamos resultado com criatividade e tecnologia.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
-                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-magic"></i></div>
-                    <h3 class="text-xl font-bold mb-3">Landing pages com IA</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Criamos páginas que convertem usando inteligência artificial para entender seu público e entregar o que ele quer ver.</p>
-                </div>
-                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
-                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-paint-brush"></i></div>
-                    <h3 class="text-xl font-bold mb-3">Branding visual</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Desenvolvemos identidades visuais que contam histórias e criam conexões emocionais com seu público.</p>
-                </div>
-                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
-                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-code"></i></div>
-                    <h3 class="text-xl font-bold mb-3">Sites rápidos e bonitos</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Sites que são tão rápidos quanto bonitos, porque performance também é experiência do usuário.</p>
-                </div>
-                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
-                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-brain"></i></div>
-                    <h3 class="text-xl font-bold mb-3">Estratégia de marca</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Ajudamos você a posicionar sua marca no mercado com estratégias criativas e dados concretos.</p>
-                </div>
-                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
-                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-camera"></i></div>
-                    <h3 class="text-xl font-bold mb-3">Foto e Reels</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Produzimos conteúdo visual que engaja, desde fotos profissionais até vídeos curtos que viralizam.</p>
-                </div>
-                <div class="ai-generator p-8 rounded-xl transform transition-all duration-500 hover:scale-105">
-                    <div class="text-4xl mb-5 text-yellow-400"><i class="fas fa-rocket"></i></div>
-                    <h3 class="text-xl font-bold mb-3">Performance + Criatividade</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Unimos dados e criatividade para criar campanhas que não só são bonitas, mas também entregam resultados.</p>
-                </div>
-            </div>
-        </div>
+    <section class="field" aria-labelledby="field-title">
+      <div class="field-head">
+        <div><div class="eyebrow reveal">Matéria-prima visual</div><h2 class="display reveal" id="field-title">Do fruto<br>ao futuro.</h2></div>
+        <p class="field-intro reveal">Forma, textura, cor, cheiro, memória. O Cerrado não é só referência: é um sistema visual inteiro esperando para ser reinventado.</p>
+      </div>
+      <div class="photo-river" id="photo-river">
+        <figure class="photo-card"><img src="assets/pequi-hand.jpg" alt="Mão sustentando frutos verdes de pequi" loading="lazy"><figcaption class="mono">Força / abundância</figcaption></figure>
+        <figure class="photo-card"><img src="assets/pequi-cut.jpg" alt="Pequi aberto revelando a polpa amarela em forma de flor" loading="lazy"><figcaption class="mono">Dentro / surpresa</figcaption></figure>
+        <figure class="photo-card"><img src="assets/pequi-flowers-blue.jpg" alt="Flores brancas de pequi contra o céu azul" loading="lazy"><figcaption class="mono">Flor / movimento</figcaption></figure>
+        <figure class="photo-card"><img src="assets/pequi-close.jpg" alt="Close da polpa amarela e casca verde do pequi" loading="lazy"><figcaption class="mono">Polpa / energia</figcaption></figure>
+        <figure class="photo-card"><img src="assets/pequi-halves.jpg" alt="Pequis inteiros e abertos mostrando a polpa amarela" loading="lazy"><figcaption class="mono">Contraste / matéria</figcaption></figure>
+        <figure class="photo-card"><img src="assets/pequi-bloom.jpg" alt="Flores e botões arroxeados do pequizeiro" loading="lazy"><figcaption class="mono">Origem / transformação</figcaption></figure>
+        <figure class="photo-card"><img src="assets/pequi-still-life.jpg" alt="Natureza-morta colorida com pequis sobre fundo verde-água" loading="lazy"><figcaption class="mono">Cor / direção</figcaption></figure>
+        <figure class="photo-card"><img src="assets/pequi-sauce.webp" alt="Prato de pequi ao molho" loading="lazy"><figcaption class="mono">Sabor / memória</figcaption></figure>
+        <figure class="photo-card"><img src="assets/pequi-market.jpg" alt="Banca de mercado cheia de pequis amarelos" loading="lazy"><figcaption class="mono">Rua / cultura</figcaption></figure>
+      </div>
     </section>
 
-    <!-- Playground Section -->
-    <section id="playground" class="section bg-black relative">
-        <div class="container mx-auto px-4 py-20 text-center">
-            <div class="inline-block px-4 py-1 border border-yellow-500 text-yellow-400 text-sm rounded-full mb-6 tracking-widest uppercase">Powered by Groq AI</div>
-            <h2 class="text-4xl md:text-6xl font-bold mb-6" style="color: #FFD500;">Testa nossa IA criativa <span class="animate-bounce inline-block">👇</span></h2>
-            <p class="text-lg mb-12 max-w-2xl mx-auto text-gray-400">Digite o nicho do seu negócio e nossa IA gera uma estrutura de landing page personalizada em segundos.</p>
-
-            <div class="max-w-2xl mx-auto mb-6">
-                <textarea id="niche-input" class="playground-input" rows="3" placeholder="Ex: academia de musculação para mulheres acima de 40 anos..."></textarea>
-            </div>
-
-            <button id="generate-btn" class="btn-hover px-10 py-4 bg-yellow-500 text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-yellow-400 relative overflow-hidden group mb-12 inline-flex items-center gap-3">
-                <i class="fas fa-wand-magic-sparkles"></i>
-                <span id="generate-btn-text">Gerar com IA</span>
-            </button>
-
-            <div id="ai-output" class="max-w-3xl mx-auto bg-gray-900 p-8 rounded-xl border border-yellow-500 hidden text-left">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-xl font-bold text-yellow-400">Landing Page Gerada pela IA ✨</h3>
-                    <button id="copy-btn" class="px-4 py-2 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition text-sm font-bold">
-                        <i class="fas fa-copy mr-2"></i>Copiar
-                    </button>
-                </div>
-                <div id="ai-content" class="text-gray-300 text-sm leading-relaxed"></div>
-                <div id="success-message" class="mt-4 text-green-400 hidden">
-                    <i class="fas fa-check-circle mr-2"></i>Copiado!
-                </div>
-            </div>
-
-            <div id="ai-error" class="max-w-3xl mx-auto mt-6 hidden">
-                <p class="text-red-400 text-sm"><i class="fas fa-exclamation-triangle mr-2"></i><span id="error-text"></span></p>
-            </div>
-        </div>
+    <section class="services" id="servicos">
+      <div class="services-head">
+        <div><div class="eyebrow reveal">O que a gente faz</div><h2 class="display reveal">Tudo<br>se mexe.</h2></div>
+        <p class="reveal">Cada entrega nasce de uma pergunta: como fazer isso ser visto, sentido e lembrado?</p>
+      </div>
+      <div class="service-list">
+        <article class="service reveal"><span class="service-num">01</span><h3>Experiências digitais</h3><p>Sites, produtos e landing pages com narrativa, performance e interação.</p></article>
+        <article class="service reveal"><span class="service-num">02</span><h3>Direção de arte + motion</h3><p>Sistemas visuais que respiram, reagem e contam histórias em movimento.</p></article>
+        <article class="service reveal"><span class="service-num">03</span><h3>IA aplicada</h3><p>Ferramentas, automações e experiências generativas com intenção humana.</p></article>
+        <article class="service reveal"><span class="service-num">04</span><h3>Marca e estratégia</h3><p>Posicionamento, identidade e linguagem para marcas que querem ter voz própria.</p></article>
+      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section bg-black relative">
-        <div class="container mx-auto px-4 py-20">
-            <h2 class="text-4xl md:text-6xl font-bold mb-6 text-center" style="color: #FFD500;">Projetos que nasceram do pé de pequi</h2>
-            <p class="text-center text-gray-400 mb-20 text-lg">Cada projeto tem uma história. Clica pra saber a nossa versão.</p>
+    <section class="work" id="projetos">
+      <div class="work-head">
+        <div><div class="eyebrow reveal">Projetos do pé de pequi</div><h2 class="display reveal">Frutos<br>reais.</h2></div>
+        <p class="reveal">Não são conceitos de gaveta. São produtos digitais vivos, construídos para transformar informação em decisão e comunidade em movimento.</p>
+      </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('Esse foi punk de fazer. Mas ficou lindo.')">
-                    <div class="h-52 bg-gradient-to-r from-yellow-500 to-yellow-300 flex items-center justify-center">
-                        <span class="text-5xl">🍊</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Marca de Sucos Naturais</h3>
-                        <p class="text-gray-400 text-sm">Branding + Site</p>
-                    </div>
-                </div>
-                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('O cliente queria algo diferente. A gente exagerou.')">
-                    <div class="h-52 bg-gradient-to-r from-green-600 to-green-400 flex items-center justify-center">
-                        <span class="text-5xl">🚀</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Startup de Tecnologia</h3>
-                        <p class="text-gray-400 text-sm">Site + Conteúdo</p>
-                    </div>
-                </div>
-                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('Landing page que converteu 35% dos visitantes.')">
-                    <div class="h-52 bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center">
-                        <span class="text-5xl">💼</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Consultoria Financeira</h3>
-                        <p class="text-gray-400 text-sm">Landing Page + IA</p>
-                    </div>
-                </div>
-                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('O mais difícil foi convencer o cliente a arriscar.')">
-                    <div class="h-52 bg-gradient-to-r from-purple-600 to-purple-400 flex items-center justify-center">
-                        <span class="text-5xl">🎭</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Teatro Experimental</h3>
-                        <p class="text-gray-400 text-sm">Identidade Visual</p>
-                    </div>
-                </div>
-                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('Esse site roda a 100fps. Sério.')">
-                    <div class="h-52 bg-gradient-to-r from-red-600 to-red-400 flex items-center justify-center">
-                        <span class="text-5xl">🎮</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">Estúdio de Games</h3>
-                        <p class="text-gray-400 text-sm">Site Ultra-Rápido</p>
-                    </div>
-                </div>
-                <div class="project-card bg-gray-900 rounded-xl overflow-hidden cursor-pointer" onclick="openModal('A IA sugeriu um conceito que ninguém aqui tinha pensado.')">
-                    <div class="h-52 bg-gradient-to-r from-pink-600 to-pink-400 flex items-center justify-center">
-                        <span class="text-5xl">🧠</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-1">App de Saúde Mental</h3>
-                        <p class="text-gray-400 text-sm">Branding + IA</p>
-                    </div>
-                </div>
-            </div>
+      <article class="case reveal">
+        <div class="case-top"><div><div class="mono" style="font-size:.58rem;color:#8b8e87;margin-bottom:.7rem">Case 01 · Inteligência financeira</div><h3 class="case-title display">Caryo Map</h3></div><div class="case-tags mono">Produto digital<br>Dados · UX · IA</div></div>
+        <div class="browser-shell">
+          <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-address">caryo.map / radar da b3</span></div>
+          <div class="browser-viewport"><iframe src="https://b3-radar-app.vercel.app/" title="Prévia do Caryo Map" loading="lazy" tabindex="-1"></iframe></div>
+          <a class="case-link" href="https://b3-radar-app.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto Caryo Map"><span>Abrir<br>projeto ↗</span></a>
         </div>
+      </article>
 
-        <div id="project-modal" class="modal hidden">
-            <div class="modal-content rounded-xl">
-                <span class="close-modal" onclick="closeModal()">&times;</span>
-                <p id="modal-text" class="text-xl mt-4"></p>
-            </div>
+      <article class="case reveal">
+        <div class="case-top"><div><div class="mono" style="font-size:.58rem;color:#8b8e87;margin-bottom:.7rem">Case 02 · Esporte e comunidade</div><h3 class="case-title display">Esporte Brasília</h3></div><div class="case-tags mono">Plataforma social<br>Mapa · UX · Produto</div></div>
+        <div class="browser-shell">
+          <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-address">esporte.bsb / seu próximo jogo</span></div>
+          <div class="browser-viewport"><iframe src="https://esportebsb-omega.vercel.app/" title="Prévia do Esporte Brasília" loading="lazy" tabindex="-1"></iframe></div>
+          <a class="case-link" href="https://esportebsb-omega.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto Esporte Brasília"><span>Abrir<br>projeto ↗</span></a>
         </div>
+      </article>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-black relative">
-        <div class="container mx-auto px-4 py-20 text-center">
-            <h2 class="text-4xl md:text-6xl font-bold mb-6" style="color: #FFD500;">Quer botar uma ideia no mundo?</h2>
-            <p class="text-lg mb-12 max-w-2xl mx-auto text-gray-400">Manda um zap ou preenche o formulário. A gente responde rapidão!</p>
-
-            <div class="max-w-xl mx-auto">
-                <a href="https://wa.me/5561992739117" target="_blank" class="zap-btn inline-flex items-center gap-3 px-10 py-5 bg-green-600 text-white font-bold rounded-full text-xl mb-12 relative overflow-hidden transition-all duration-300 hover:bg-green-500 hover:scale-105">
-                    <i class="fab fa-whatsapp text-2xl"></i> Fala com a PEQUI no Zap
-                </a>
-
-                <form id="contact-form" class="text-left">
-                    <div class="mb-5">
-                        <label for="name" class="block text-sm font-bold mb-2 text-gray-300 uppercase tracking-wide">Seu nome</label>
-                        <input type="text" id="name" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-500 transition text-white">
-                    </div>
-                    <div class="mb-5">
-                        <label for="email" class="block text-sm font-bold mb-2 text-gray-300 uppercase tracking-wide">Seu email</label>
-                        <input type="email" id="email" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-500 transition text-white">
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-sm font-bold mb-2 text-gray-300 uppercase tracking-wide">Sua ideia</label>
-                        <textarea id="message" rows="5" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-yellow-500 transition text-white resize-none"></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="btn-hover px-8 py-4 bg-yellow-500 text-black font-bold rounded-full text-lg transition-all duration-300 hover:bg-yellow-400 w-full">
-                        Manda ver!
-                    </button>
-                    <p id="form-success" class="mt-4 text-green-400 text-center hidden"><i class="fas fa-check-circle mr-2"></i>Mensagem enviada! Logo entraremos em contato.</p>
-                </form>
-            </div>
+    <section class="lab" id="laboratorio">
+      <div class="lab-orbit" aria-hidden="true"></div>
+      <div class="lab-grid">
+        <div><div class="eyebrow reveal">Experimento generativo 01</div><h2 class="display reveal">Plante<br>uma<br>ideia.</h2><p class="lab-copy reveal">Dê uma semente para a nossa máquina criativa. Ela devolve um ponto de partida de marca — não para substituir o pensamento, mas para provocar o primeiro movimento.</p></div>
+        <div class="lab-panel reveal">
+          <div class="lab-label mono"><span>Máquina de germinar conceitos</span><span>PEQUI.AI / beta</span></div>
+          <label class="sr-only" for="idea-input">Descreva sua ideia</label>
+          <textarea id="idea-input" maxlength="300" placeholder="Ex: um café de bairro que vira clube cultural depois das 18h..."></textarea>
+          <div class="lab-actions"><span class="lab-status mono" id="lab-status">Sistema pronto para germinar</span><button id="germinate-btn" type="button">Germinar ideia ↗</button></div>
+          <div id="lab-result" aria-live="polite"><div class="result-kicker mono">Primeiro broto</div><div class="result-title" id="result-title"></div><p class="result-text" id="result-text"></p></div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-gray-800 relative">
-        <div class="container mx-auto px-4 text-center">
-            <a href="#" class="text-3xl font-bold mb-6 inline-block" style="font-family: 'Space Grotesk', sans-serif; color: #FFD500;">PEQUI</a>
-            <p class="glitch text-gray-400 mb-6 text-sm" data-text="Feito com código, câmera e cuscuz.">Feito com código, câmera e cuscuz.</p>
-            <div class="text-gray-600 mb-8 text-sm">
-                Criatividade é tecnologia com sotaque. © PEQUI 2025
-            </div>
-
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="#" class="text-gray-500 hover:text-yellow-400 text-2xl transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-gray-500 hover:text-yellow-400 text-2xl transition"><i class="fab fa-behance"></i></a>
-                <a href="#" class="text-gray-500 hover:text-yellow-400 text-2xl transition"><i class="fab fa-github"></i></a>
-                <a href="#" class="text-gray-500 hover:text-yellow-400 text-2xl transition"><i class="fab fa-linkedin"></i></a>
-            </div>
-
-            <button id="back-to-top" class="px-6 py-3 bg-gray-800 text-white rounded-full text-sm transition-all duration-300 hover:bg-gray-700 hidden">
-                <i class="fas fa-arrow-up mr-2"></i> Voltar ao topo
-            </button>
+    <section class="contact" id="contato">
+      <div>
+        <div class="eyebrow reveal">Agora é com você</div>
+        <h2 class="display reveal">Bora fazer<span>o impossível?</span></h2>
+        <div class="contact-grid">
+          <div class="contact-note reveal"><p>Se a sua ideia ainda não cabe numa categoria, melhor ainda. Conta pra gente onde você quer chegar — a gente inventa o caminho.</p><p class="mono" style="font-size:.62rem;margin-top:2rem">Brasília · DF<br>Atendimento em todo o Brasil</p></div>
+          <form class="contact-form reveal" id="contact-form">
+            <div class="form-row"><div class="field-wrap"><label for="name">Seu nome</label><input id="name" name="name" autocomplete="name" required placeholder="Como te chamam?"></div><div class="field-wrap"><label for="brand">Marca / projeto</label><input id="brand" name="brand" placeholder="Se já tiver nome"></div></div>
+            <div class="field-wrap"><label for="message">O que você quer colocar no mundo?</label><textarea id="message" name="message" required placeholder="Conta tudo. A gente gosta de ideias ainda bagunçadas."></textarea></div>
+            <button class="contact-submit magnetic" type="submit">Mandar<br>no zap ↗</button>
+          </form>
         </div>
-    </footer>
+      </div>
+      <footer><div class="footer-logo">PEQUI®</div><div class="mono">Feito com código, câmera e cuscuz.<br>© 2026 · Criatividade é tecnologia com sotaque.</div></footer>
+    </section>
+  </main>
 
-    <script src="config.js"></script>
-    <script>
-        const GROQ_MODEL = 'llama-3.3-70b-versatile';
+  <script src="config.js"></script>
+  <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const loader = document.getElementById('loader');
+    const loaderFill = document.querySelector('.loader-fill');
+    const loaderCount = document.getElementById('loader-count');
+    let loadValue = 0;
+    let loadingFinished = false;
+    const loadTimer = setInterval(() => {
+      loadValue = Math.min(loadValue + Math.ceil(Math.random() * 13), 92);
+      loaderFill.style.width = loadValue + '%';
+      loaderCount.textContent = String(loadValue).padStart(2, '0');
+    }, 90);
+    function finishLoading() {
+      if (loadingFinished) return;
+      loadingFinished = true;
+      clearInterval(loadTimer); loaderFill.style.width = '100%'; loaderCount.textContent = '100';
+      setTimeout(() => { loader.classList.add('done'); document.body.classList.remove('loading'); initMotion(); }, reduceMotion ? 50 : 420);
+    }
+    window.addEventListener('load', finishLoading, { once: true });
+    setTimeout(finishLoading, 3500);
 
-        async function callGroq(messages) {
-            const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${GROQ_API_KEY}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ model: GROQ_MODEL, messages, max_tokens: 1024, temperature: 0.8 })
-            });
-            if (!res.ok) throw new Error('Erro na API Groq: ' + res.status);
-            const data = await res.json();
-            return data.choices[0].message.content;
-        }
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.textContent = open ? '×' : '＋'; menuBtn.setAttribute('aria-expanded', open); menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { navLinks.classList.remove('open'); menuBtn.textContent = '＋'; menuBtn.setAttribute('aria-expanded', 'false'); }));
 
-        // Custom Cursor
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        window.addEventListener('mousemove', (e) => {
-            cursorDot.style.left = `${e.clientX}px`;
-            cursorDot.style.top = `${e.clientY}px`;
-            cursorOutline.style.left = `${e.clientX}px`;
-            cursorOutline.style.top = `${e.clientY}px`;
-        });
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => { cursorDot.style.transform = 'translate(-50%,-50%) scale(3)'; });
-            el.addEventListener('mouseleave', () => { cursorDot.style.transform = 'translate(-50%,-50%) scale(1)'; });
-        });
+    const progress = document.getElementById('progress');
+    window.addEventListener('scroll', () => { const max = document.documentElement.scrollHeight - innerHeight; progress.style.width = (scrollY / max * 100) + '%'; }, { passive: true });
 
-        // Scroll progress
-        window.addEventListener('scroll', () => {
-            const el = document.getElementById('scroll-progress');
-            const top = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            el.style.width = `${(top / height) * 100}%`;
-            const btn = document.getElementById('back-to-top');
-            top > 300 ? btn.classList.remove('hidden') : btn.classList.add('hidden');
-        });
-        document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const cursor = document.getElementById('cursor');
+    if (matchMedia('(pointer:fine)').matches) {
+      addEventListener('pointermove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+      document.querySelectorAll('a, button, input, textarea, .photo-card').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('active')); el.addEventListener('mouseleave', () => cursor.classList.remove('active')); });
+      document.querySelectorAll('.magnetic').forEach(el => {
+        el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX-r.left-r.width/2)*.14}px,${(e.clientY-r.top-r.height/2)*.14}px)`; });
+        el.addEventListener('pointerleave', () => el.style.transform = '');
+      });
+    }
 
-        // Mobile Menu
-        document.getElementById('menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('open');
-        });
-        document.querySelectorAll('#mobile-menu a').forEach(a => {
-            a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open'));
-        });
+    function initMotion() {
+      if (reduceMotion || typeof gsap === 'undefined') { document.querySelectorAll('.reveal,.clip-reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; el.style.clipPath = 'none'; }); return; }
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.hero-title > span', { yPercent: 120, opacity: 0, duration: 1.25, stagger: .13, ease: 'power4.out' });
+      gsap.from('.hero-bottom', { y: 30, opacity: 0, duration: .9, delay: .6 });
+      document.querySelectorAll('.reveal').forEach(el => gsap.to(el, { scrollTrigger: { trigger: el, start: 'top 88%' }, opacity: 1, y: 0, duration: .9, ease: 'power3.out' }));
+      document.querySelectorAll('.clip-reveal').forEach(el => gsap.to(el, { scrollTrigger: { trigger: el, start: 'top 84%' }, clipPath: 'inset(0 0 0% 0)', duration: 1.25, ease: 'power4.inOut' }));
+      gsap.to('.manifesto-media img', { scrollTrigger: { trigger: '.manifesto', start: 'top bottom', end: 'bottom top', scrub: 1 }, yPercent: 12, ease: 'none' });
+      const river = document.getElementById('photo-river');
+      gsap.to(river, { scrollTrigger: { trigger: '.field', start: 'top 70%', end: 'bottom top', scrub: 1 }, x: () => Math.min(0, innerWidth - river.scrollWidth - 40), ease: 'none' });
+      gsap.to('#hero-video', { scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }, scale: 1.2, opacity: .35 });
+    }
 
-        // Typing effect
-        new Typewriter('#typing-text', { loop: false, delay: 50 })
-            .typeString('A gente cria o que não existe.')
-            .pauseFor(1000)
-            .typeString('<br>E se já existir, a gente reinventa.')
-            .start();
+    const heroVideo = document.getElementById('hero-video');
+    if (reduceMotion) heroVideo.pause();
+    else if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => entry.isIntersecting ? heroVideo.play().catch(()=>{}) : heroVideo.pause(), { threshold: .1 }).observe(heroVideo);
 
-        // Playground - Groq AI
-        document.getElementById('generate-btn').addEventListener('click', async function () {
-            const niche = document.getElementById('niche-input').value.trim();
-            const btn = this;
-            const btnText = document.getElementById('generate-btn-text');
-            const output = document.getElementById('ai-output');
-            const content = document.getElementById('ai-content');
-            const errorDiv = document.getElementById('ai-error');
-            const errorText = document.getElementById('error-text');
+    // Generative seed field
+    const canvas = document.getElementById('seed-canvas');
+    const ctx = canvas.getContext('2d');
+    let seeds = [], pointer = { x: -999, y: -999 };
+    function sizeCanvas() { const dpr = Math.min(devicePixelRatio, 1.5); canvas.width = innerWidth*dpr; canvas.height = innerHeight*dpr; canvas.style.width = innerWidth+'px'; canvas.style.height = innerHeight+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); seeds = Array.from({length: innerWidth<700?7:14}, (_,i)=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:18+Math.random()*55,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,color:i%3===0?'#ff5c00':'#dfff00'})); }
+    function drawSeeds() { ctx.clearRect(0,0,innerWidth,innerHeight); seeds.forEach(s=>{ const dx=s.x-pointer.x, dy=s.y-pointer.y, d=Math.hypot(dx,dy); if(d<160){s.vx+=dx/d*.035;s.vy+=dy/d*.035;} s.x+=s.vx;s.y+=s.vy;s.vx*=.995;s.vy*=.995; if(s.x<-s.r)s.x=innerWidth+s.r;if(s.x>innerWidth+s.r)s.x=-s.r;if(s.y<-s.r)s.y=innerHeight+s.r;if(s.y>innerHeight+s.r)s.y=-s.r; const g=ctx.createRadialGradient(s.x-s.r*.25,s.y-s.r*.3,2,s.x,s.y,s.r);g.addColorStop(0,'rgba(255,255,220,.7)');g.addColorStop(.25,s.color);g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();}); if(!reduceMotion)requestAnimationFrame(drawSeeds); }
+    if (!reduceMotion) { sizeCanvas(); drawSeeds(); addEventListener('resize', sizeCanvas); addEventListener('pointermove',e=>{pointer.x=e.clientX;pointer.y=e.clientY;}); }
 
-            if (!niche) {
-                alert('Descreve o nicho do seu negócio primeiro!');
-                return;
-            }
+    // Creative germinator: uses Groq when a local key is available, with an honest browser-generated fallback online.
+    const germinateBtn = document.getElementById('germinate-btn');
+    const ideaInput = document.getElementById('idea-input');
+    const labStatus = document.getElementById('lab-status');
+    const labResult = document.getElementById('lab-result');
+    const resultTitle = document.getElementById('result-title');
+    const resultText = document.getElementById('result-text');
+    const localSeeds = [
+      ['Ritual em movimento','Transforme a marca em um ritual diário: uma identidade que muda com o horário, conteúdos que respondem ao contexto e uma experiência digital que recompensa quem volta.'],
+      ['Clube do inesperado','Em vez de vender só um produto, crie pertencimento. A marca vira ponto de encontro, com linguagem de manifesto, experiências secretas e pequenos momentos colecionáveis.'],
+      ['Matéria viva','Use a origem como interface: texturas, sons e movimentos do universo da marca formam um sistema generativo que nunca aparece exatamente igual duas vezes.'],
+      ['Sinal de futuro','Posicione a ideia como uma pequena revolução acessível. Visual de alto contraste, mensagens curtas e uma demonstração interativa que faz a promessa acontecer na tela.']
+    ];
+    function localConcept(text) { let hash=0; for(const c of text) hash=(hash*31+c.charCodeAt(0))>>>0; const base=localSeeds[hash%localSeeds.length]; return {title:base[0], text:`Para “${text}”: ${base[1]} Primeiro movimento: crie uma cena de 15 segundos que mostre a transformação sem precisar explicá-la.`}; }
+    async function groqConcept(text) {
+      if (typeof GROQ_API_KEY === 'undefined' || !GROQ_API_KEY) return null;
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{Authorization:`Bearer ${GROQ_API_KEY}`,'Content-Type':'application/json'},body:JSON.stringify({model:'llama-3.3-70b-versatile',temperature:.9,max_tokens:220,messages:[{role:'system',content:'Você é diretor criativo da PEQUI. Responda em JSON válido com title (máx 4 palavras) e text (máx 55 palavras). Crie um conceito original de marca e um primeiro movimento concreto. Português brasileiro, inteligente, sem clichês.'},{role:'user',content:text}]})});
+      if(!response.ok) throw new Error('offline'); const data=await response.json(); return JSON.parse(data.choices[0].message.content.replace(/```json|```/g,'').trim());
+    }
+    germinateBtn.addEventListener('click', async () => {
+      const text=ideaInput.value.trim(); if(!text){ideaInput.focus();labStatus.textContent='Falta plantar a semente';return;}
+      germinateBtn.disabled=true; labStatus.textContent='Raízes procurando uma direção...'; labResult.classList.remove('show');
+      let concept; try { concept=await groqConcept(text); } catch(e) { concept=null; }
+      if(!concept){await new Promise(r=>setTimeout(r,650));concept=localConcept(text);labStatus.textContent='Conceito gerado no navegador';} else labStatus.textContent='Conceito germinado com IA';
+      resultTitle.textContent=concept.title;resultText.textContent=concept.text;labResult.classList.add('show');germinateBtn.disabled=false;
+    });
 
-            btn.disabled = true;
-            btnText.textContent = 'Gerando...';
-            output.classList.add('hidden');
-            errorDiv.classList.add('hidden');
-
-            try {
-                const prompt = `Você é um especialista em copywriting e marketing digital. Crie uma estrutura completa de landing page para o seguinte nicho: "${niche}".
-
-Inclua:
-1. HEADLINE principal (impactante e com benefício claro)
-2. SUBHEADLINE (complementa e aprofunda)
-3. PROPOSTA DE VALOR (3 bullet points com os principais benefícios)
-4. PROVA SOCIAL (sugestão de depoimento fictício convincente)
-5. CTA PRINCIPAL (texto do botão + cor sugerida)
-6. ELEMENTO DE URGÊNCIA (como gerar senso de urgência)
-7. GARANTIA (para reduzir objeções)
-
-Seja criativo, use linguagem que converte, e adapte o tom ao público do nicho. Responda em português brasileiro.`;
-
-                const result = await callGroq([{ role: 'user', content: prompt }]);
-                content.innerHTML = result.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong class="text-yellow-400">$1</strong>');
-                output.classList.remove('hidden');
-                output.scrollIntoView({ behavior: 'smooth' });
-            } catch (err) {
-                errorText.textContent = err.message;
-                errorDiv.classList.remove('hidden');
-            } finally {
-                btn.disabled = false;
-                btnText.textContent = 'Gerar com IA';
-            }
-        });
-
-        // Copy button
-        document.getElementById('copy-btn').addEventListener('click', function () {
-            const text = document.getElementById('ai-content').innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const msg = document.getElementById('success-message');
-                msg.classList.remove('hidden');
-                setTimeout(() => msg.classList.add('hidden'), 3000);
-            });
-        });
-
-        // AI Chat Widget
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatBox = document.getElementById('chat-box');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-        const chatSend = document.getElementById('chat-send');
-        let chatHistory = [];
-
-        chatToggle.addEventListener('click', () => chatBox.classList.toggle('open'));
-
-        function appendMsg(text, type) {
-            const div = document.createElement('div');
-            div.className = `msg ${type}`;
-            div.textContent = text;
-            chatMessages.appendChild(div);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            return div;
-        }
-
-        async function sendChatMessage() {
-            const text = chatInput.value.trim();
-            if (!text) return;
-            chatInput.value = '';
-            appendMsg(text, 'user');
-
-            chatHistory.push({ role: 'user', content: text });
-
-            const typing = appendMsg('Digitando...', 'typing');
-
-            const systemPrompt = `Você é o assistente virtual da PEQUI, uma agência digital criativa brasileira. Responda de forma simpática, breve e direta sobre os serviços da agência: landing pages com IA, branding visual, sites rápidos, estratégia de marca, foto e reels, e performance criativa. Se perguntarem sobre orçamento, diga para entrar em contato pelo WhatsApp (61) 99273-9117. Mantenha respostas curtas (máx 3 frases).`;
-
-            try {
-                const messages = [
-                    { role: 'system', content: systemPrompt },
-                    ...chatHistory
-                ];
-                const reply = await callGroq(messages);
-                chatHistory.push({ role: 'assistant', content: reply });
-                typing.className = 'msg bot';
-                typing.textContent = reply;
-            } catch {
-                typing.className = 'msg bot';
-                typing.textContent = 'Ops, tive um probleminha. Tenta de novo ou chama no WhatsApp! 😅';
-            }
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        chatSend.addEventListener('click', sendChatMessage);
-        chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendChatMessage(); });
-
-        // Contact form
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const btn = document.getElementById('submit-btn');
-            btn.textContent = 'Enviando...';
-            btn.disabled = true;
-            setTimeout(() => {
-                document.getElementById('form-success').classList.remove('hidden');
-                btn.textContent = 'Manda ver!';
-                btn.disabled = false;
-                this.reset();
-            }, 1200);
-        });
-
-        // Modal
-        function openModal(text) {
-            const modal = document.getElementById('project-modal');
-            document.getElementById('modal-text').textContent = text;
-            modal.classList.remove('hidden');
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            const modal = document.getElementById('project-modal');
-            modal.classList.add('hidden');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        window.addEventListener('click', e => { if (e.target === document.getElementById('project-modal')) closeModal(); });
-
-        // Particles
-        function createParticles(id, count = 25) {
-            const container = document.getElementById(id);
-            if (!container) return;
-            for (let i = 0; i < count; i++) {
-                const p = document.createElement('div');
-                p.classList.add('particle');
-                const size = Math.random() * 3 + 2;
-                p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:float ${Math.random()*20+10}s ease-in-out ${Math.random()*5}s infinite`;
-                container.appendChild(p);
-            }
-        }
-        createParticles('particles-1');
-        createParticles('particles-2');
-
-        // Hero film: pause when off-screen and honor reduced-motion preferences
-        const heroVideo = document.getElementById('hero-video');
-        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (heroVideo) {
-            if (reducedMotion) {
-                heroVideo.pause();
-            } else if ('IntersectionObserver' in window) {
-                new IntersectionObserver(([entry]) => {
-                    if (entry.isIntersecting) heroVideo.play().catch(() => {});
-                    else heroVideo.pause();
-                }, { threshold: 0.15 }).observe(heroVideo);
-            }
-        }
-
-        const style = document.createElement('style');
-        style.innerHTML = `@keyframes float{0%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(10px,10px) rotate(5deg)}50%{transform:translate(20px,5px) rotate(0deg)}75%{transform:translate(10px,0) rotate(-5deg)}100%{transform:translate(0,0) rotate(0deg)}}`;
-        document.head.appendChild(style);
-
-        // GSAP
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.section').forEach(s => {
-            gsap.from(s, { scrollTrigger: { trigger: s, start: "top 80%", toggleActions: "play none none none" }, opacity: 0, y: 50, duration: 1 });
-        });
-        gsap.utils.toArray('.ai-generator').forEach((card, i) => {
-            gsap.from(card, { scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" }, opacity: 0, x: i % 2 === 0 ? -50 : 50, duration: 0.8, delay: i * 0.1 });
-        });
-        gsap.utils.toArray('.project-card').forEach((card, i) => {
-            gsap.from(card, { scrollTrigger: { trigger: card, start: "top 85%", toggleActions: "play none none none" }, opacity: 0, scale: 0.85, duration: 0.8, delay: i * 0.1 });
-        });
-    </script>
-
-    <script>
-        /* ── 1. CURSOR TRAIL ── */
-        const TRAIL_LENGTH = 18;
-        const trail = [];
-
-        for (let i = 0; i < TRAIL_LENGTH; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'trail-dot';
-            dot.style.opacity = (1 - i / TRAIL_LENGTH) * 0.7;
-            dot.style.transform = `translate(-50%,-50%) scale(${1 - i / TRAIL_LENGTH})`;
-            document.body.appendChild(dot);
-            trail.push({ el: dot, x: -100, y: -100 });
-        }
-
-        let mouseX = -100, mouseY = -100;
-        window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-
-        (function animateTrail() {
-            let x = mouseX, y = mouseY;
-            trail.forEach((dot, i) => {
-                dot.el.style.left = x + 'px';
-                dot.el.style.top  = y + 'px';
-                const prev = trail[i - 1];
-                if (prev) { x = prev.x + (x - prev.x) * 0.6; y = prev.y + (y - prev.y) * 0.6; }
-                dot.x = parseFloat(dot.el.style.left);
-                dot.y = parseFloat(dot.el.style.top);
-            });
-            requestAnimationFrame(animateTrail);
-        })();
-
-        /* ── 2. PARALLAX 3D NO HERO ── */
-        const heroSection = document.getElementById('home');
-        const layer1 = document.getElementById('hero-layer-1');
-        const layer2 = document.getElementById('hero-layer-2');
-        const typingEl = document.getElementById('typing-text');
-
-        heroSection.addEventListener('mousemove', e => {
-            const rect = heroSection.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dx = (e.clientX - cx) / rect.width;
-            const dy = (e.clientY - cy) / rect.height;
-
-            layer1.style.transform = `translate(${dx * -20}px, ${dy * -20}px)`;
-            typingEl.style.transform = `translate(${dx * 12}px, ${dy * 10}px)`;
-            layer2.style.transform = `translate(${dx * 6}px, ${dy * 5}px)`;
-        });
-
-        heroSection.addEventListener('mouseleave', () => {
-            layer1.style.transform = '';
-            typingEl.style.transform = '';
-            layer2.style.transform = '';
-        });
-
-        /* ── 3. KONAMI CODE EASTER EGG ── */
-        const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-        let konamiIdx = 0;
-
-        document.addEventListener('keydown', e => {
-            if (e.key === KONAMI[konamiIdx]) {
-                konamiIdx++;
-                if (konamiIdx === KONAMI.length) {
-                    konamiIdx = 0;
-                    triggerKonami();
-                }
-            } else {
-                konamiIdx = e.key === KONAMI[0] ? 1 : 0;
-            }
-        });
-
-        function triggerKonami() {
-            document.getElementById('konami-overlay').classList.add('show');
-            launchConfetti();
-        }
-
-        function launchConfetti() {
-            const colors = ['#FFD500','#ff6b35','#ffffff','#00ff88','#ff3cac','#7b2fff'];
-            for (let i = 0; i < 120; i++) {
-                setTimeout(() => {
-                    const c = document.createElement('div');
-                    c.className = 'confetti-piece';
-                    c.style.left = Math.random() * 100 + 'vw';
-                    c.style.background = colors[Math.floor(Math.random() * colors.length)];
-                    c.style.width  = (Math.random() * 8 + 6) + 'px';
-                    c.style.height = (Math.random() * 8 + 6) + 'px';
-                    c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-                    c.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
-                    c.style.animationDelay = (Math.random() * 0.8) + 's';
-                    document.body.appendChild(c);
-                    setTimeout(() => c.remove(), 4000);
-                }, i * 20);
-            }
-        }
-    </script>
+    document.getElementById('contact-form').addEventListener('submit', e => {
+      e.preventDefault(); const name=document.getElementById('name').value.trim(); const brand=document.getElementById('brand').value.trim(); const message=document.getElementById('message').value.trim();
+      const text=`Oi, PEQUI! Eu sou ${name}${brand?` e meu projeto se chama ${brand}`:''}.\n\nQuero colocar isto no mundo:\n${message}`;
+      window.open(`https://wa.me/5561992739117?text=${encodeURIComponent(text)}`,'_blank','noopener,noreferrer');
+    });
+  </script>
 </body>
 </html>
