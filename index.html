@@ -89,16 +89,16 @@
     @keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(25,182,91,0); } 0%,100% { box-shadow: 0 0 0 0 rgba(25,182,91,.45); } }
 
     /* Hero */
-    .hero { min-height: 100svh; position: relative; display: flex; align-items: flex-end; padding: 8rem var(--pad) 4rem; isolation: isolate; overflow: hidden; background: #050805; }
+    .hero { min-height: 88svh; position: relative; display: flex; align-items: flex-end; padding: 7rem var(--pad) 3rem; isolation: isolate; overflow: hidden; background: #050805; }
     .hero-film { position: absolute; inset: 0; z-index: -3; }
     .hero-film video { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.22) contrast(1.08); transform: scale(1.04); }
     .hero-film::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.06) 40%, rgba(0,0,0,.88) 95%), linear-gradient(90deg, rgba(0,0,0,.5), transparent 70%); }
     #seed-canvas { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; mix-blend-mode: screen; opacity: .75; }
     .hero-topline { position: absolute; top: 7rem; left: var(--pad); right: var(--pad); display: flex; justify-content: space-between; align-items: center; font-size: .62rem; }
     .hero-topline span:last-child { text-align: right; }
-    .hero-title { position: relative; z-index: 2; font-size: clamp(4.3rem, 13.5vw, 13rem); line-height: .72; max-width: 96vw; margin: 0; color: var(--acid); text-shadow: 0 8px 50px rgba(0,0,0,.45); }
+    .hero-title { position: relative; z-index: 2; font-size: clamp(4rem, 11vw, 10.5rem); line-height: .76; max-width: 88vw; margin: 0; color: var(--acid); text-shadow: 0 8px 50px rgba(0,0,0,.45); }
     .hero-title .outline { color: transparent; -webkit-text-stroke: 2px var(--white); display: block; margin-left: 13vw; }
-    .hero-bottom { position: absolute; right: var(--pad); bottom: 4.5rem; z-index: 4; max-width: 25rem; display: grid; gap: 1.2rem; }
+    .hero-bottom { position: absolute; right: var(--pad); bottom: 3.2rem; z-index: 4; max-width: 23rem; display: grid; gap: 1rem; }
     .hero-bottom p { font-size: clamp(.95rem, 1.35vw, 1.15rem); line-height: 1.55; margin: 0; }
     .hero-cta { display: inline-flex; width: fit-content; align-items: center; gap: 1rem; text-decoration: none; font: 500 .68rem 'DM Mono', monospace; text-transform: uppercase; border-bottom: 1px solid var(--acid); padding-bottom: .45rem; }
     .hero-cta span { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; color: var(--ink); background: var(--acid); }
@@ -111,52 +111,65 @@
     @keyframes marquee { to { transform: translateX(-50%); } }
 
     /* Manifesto */
-    .manifesto { min-height: 140vh; padding: 10rem var(--pad); display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(2rem,7vw,8rem); background: var(--cream); color: var(--ink); position: relative; }
-    .manifesto-media { height: min(72vh, 760px); position: sticky; top: 12vh; overflow: hidden; border-radius: 50% 50% 1.5rem 1.5rem; }
+    .manifesto { min-height: 105vh; padding: 7rem var(--pad); display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem,6vw,6rem); background: var(--cream); color: var(--ink); position: relative; }
+    .manifesto-media { height: min(62vh, 650px); position: sticky; top: 16vh; overflow: hidden; border-radius: 50% 50% 1.5rem 1.5rem; }
     .manifesto-media img { width: 100%; height: 120%; object-fit: cover; object-position: center; transform: translateY(-8%); }
     .manifesto-number { position: absolute; top: 1.3rem; left: 1.3rem; z-index: 2; background: var(--acid); border-radius: 50%; width: 3.2rem; height: 3.2rem; display: grid; place-items: center; font-size: .7rem; }
-    .manifesto-copy { padding-top: 10vh; }
+    .manifesto-copy { padding-top: 4vh; }
     .eyebrow { font: 500 .66rem 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .14em; display: flex; align-items: center; gap: .8rem; margin-bottom: 2rem; }
     .eyebrow::before { content: ''; width: 2.3rem; height: 1px; background: currentColor; }
-    .manifesto h2 { font-size: clamp(3.4rem, 7.7vw, 8.5rem); line-height: .82; margin-bottom: 3.5rem; }
+    .manifesto h2 { font-size: clamp(3.1rem, 6vw, 6.6rem); line-height: .84; margin-bottom: 2.6rem; }
     .manifesto h2 em { font-style: normal; color: var(--pulp); }
     .manifesto-lead { font-size: clamp(1.15rem, 2.1vw, 1.75rem); line-height: 1.5; max-width: 38rem; }
-    .manifesto-note { margin-top: 4rem; display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; max-width: 33rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,.25); font-size: .82rem; line-height: 1.65; }
+    .manifesto-note { margin-top: 2.6rem; display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; max-width: 33rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,.25); font-size: .82rem; line-height: 1.65; }
 
     /* Photo sequence */
-    .field { padding: 10rem 0 11rem; overflow: hidden; background: var(--leaf); }
-    .field-head { padding: 0 var(--pad); display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 2rem; margin-bottom: 5rem; }
-    .field h2 { font-size: clamp(4rem, 10vw, 10rem); line-height: .78; margin-bottom: 0; color: var(--acid); }
+    .field { padding: 6.5rem var(--pad) 7rem; overflow: hidden; background: var(--leaf); }
+    .field-head { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 2rem; margin-bottom: 2.5rem; }
+    .field h2 { font-size: clamp(3.5rem, 7.4vw, 7.8rem); line-height: .8; margin-bottom: 0; color: var(--acid); }
     .field-intro { max-width: 30rem; justify-self: end; font-size: 1rem; line-height: 1.6; }
-    .photo-river { display: flex; gap: clamp(1rem, 2vw, 2rem); width: max-content; padding: 2rem var(--pad); will-change: transform; }
-    .photo-card { width: clamp(240px, 26vw, 430px); height: clamp(330px, 39vw, 610px); flex: 0 0 auto; overflow: hidden; position: relative; border-radius: 1rem; background: #111; transform-origin: center; }
-    .photo-card:nth-child(even) { margin-top: 6rem; }
-    .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .5s; }
-    .photo-card:hover img { transform: scale(1.08); filter: saturate(1.25); }
-    .photo-card figcaption { position: absolute; inset: auto 1rem 1rem; z-index: 2; color: white; font-size: .62rem; }
-    .photo-card::after { content: ''; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.72)); }
+    .atlas { position: relative; max-width: 1360px; height: clamp(650px, 70vw, 850px); margin: 0 auto; isolation: isolate; }
+    .atlas-word { position: absolute; inset: 37% auto auto 50%; transform: translate(-50%,-50%); z-index: -1; color: transparent; -webkit-text-stroke: 1px rgba(223,255,0,.32); font: 800 clamp(6rem,17vw,17rem)/.7 'Syne',sans-serif; letter-spacing: -.1em; white-space: nowrap; }
+    .media-tile { position: absolute; overflow: hidden; background: #0a0d0a; box-shadow: 0 22px 55px rgba(0,0,0,.3); transition: z-index 0s, transform .65s cubic-bezier(.2,.8,.2,1), filter .4s; will-change: transform; }
+    .media-tile:hover { z-index: 20; filter: saturate(1.18); }
+    .media-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+    .media-tile:hover img { transform: scale(1.055); }
+    .media-tile figcaption { position: absolute; z-index: 4; left: .8rem; bottom: .7rem; color: white; font-size: .54rem; text-shadow: 0 1px 8px #000; }
+    .atlas-a { left: 0; top: 12%; width: 24%; height: 50%; border-radius: 8rem 8rem .8rem .8rem; transform: rotate(-4deg); }
+    .atlas-b { left: 17%; bottom: 2%; width: 23%; height: 31%; border-radius: .7rem; transform: rotate(5deg); }
+    .atlas-c { right: 1%; top: 4%; width: 25%; height: 34%; border-radius: .7rem; transform: rotate(3deg); }
+    .atlas-d { right: 3%; bottom: 1%; width: 27%; height: 39%; border-radius: 50% 50% .8rem .8rem; transform: rotate(-4deg); }
+    .atlas-e { right: 25%; top: 4%; width: 17%; height: 24%; border-radius: 50%; transform: rotate(7deg); }
+    .atlas-f { left: 5%; bottom: 3%; width: 13%; aspect-ratio: 1; border-radius: 50%; transform: rotate(-8deg); }
+    .atlas-g { right: 27%; bottom: 3%; width: 14%; height: 21%; border-radius: .6rem; transform: rotate(5deg); }
+    .atlas-lens { left: 29%; top: 20%; width: 43%; height: 56%; border-radius: 48% 48% 1rem 1rem; z-index: 5; transform: rotate(-1deg); cursor: crosshair; }
+    .atlas-lens::after { content: 'mova para revelar'; position: absolute; z-index: 5; right: 1rem; top: 1rem; padding: .5rem .65rem; background: var(--acid); color: var(--ink); font: 500 .52rem 'DM Mono',monospace; text-transform: uppercase; }
+    .lens-base, .lens-reveal { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .lens-reveal { background: url('assets/pequi-close.jpg') center/cover; clip-path: circle(0 at var(--lens-x,50%) var(--lens-y,50%)); transition: clip-path .35s cubic-bezier(.2,.8,.2,1); }
+    .atlas-lens:hover .lens-reveal { clip-path: circle(24% at var(--lens-x,50%) var(--lens-y,50%)); }
+    .atlas-orbit { position: absolute; left: 37%; top: 12%; z-index: 12; width: clamp(4.5rem,8vw,8rem); aspect-ratio: 1; border-radius: 50%; background: var(--pulp); display: grid; place-items: center; color: var(--ink); font: 500 .56rem 'DM Mono',monospace; text-transform: uppercase; text-align: center; }
 
     /* Services */
-    .services { background: var(--pulp); color: var(--ink); padding: 10rem var(--pad); }
-    .services-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 5rem; }
-    .services h2 { font-size: clamp(4rem, 10vw, 10rem); line-height: .75; margin: 0; }
+    .services { background: var(--pulp); color: var(--ink); padding: 7rem var(--pad); }
+    .services-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 3.5rem; }
+    .services h2 { font-size: clamp(3.5rem, 7.5vw, 7.8rem); line-height: .78; margin: 0; }
     .services-head p { max-width: 25rem; line-height: 1.55; }
     .service-list { border-top: 2px solid var(--ink); }
-    .service { display: grid; grid-template-columns: 5rem 1fr auto; align-items: center; gap: 1rem; padding: 2rem 0; border-bottom: 2px solid var(--ink); position: relative; overflow: hidden; transition: color .35s, padding .35s; }
+    .service { display: grid; grid-template-columns: 5rem 1fr auto; align-items: center; gap: 1rem; padding: 1.4rem 0; border-bottom: 2px solid var(--ink); position: relative; overflow: hidden; transition: color .35s, padding .35s; }
     .service::before { content: ''; position: absolute; inset: 0; background: var(--acid); transform: translateY(101%); transition: transform .4s cubic-bezier(.77,0,.18,1); }
     .service:hover::before { transform: translateY(0); }
     .service:hover { padding-inline: 1.2rem; }
     .service > * { position: relative; z-index: 1; }
     .service-num { font: 400 .72rem 'DM Mono', monospace; }
-    .service h3 { font: 700 clamp(1.8rem, 4vw, 4.6rem)/1 'Syne', sans-serif; text-transform: uppercase; letter-spacing: -.04em; margin: 0; }
+    .service h3 { font: 700 clamp(1.7rem, 3.2vw, 3.7rem)/1 'Syne', sans-serif; text-transform: uppercase; letter-spacing: -.04em; margin: 0; }
     .service p { max-width: 26rem; font-size: .8rem; line-height: 1.5; margin: 0; text-align: right; }
 
     /* Work */
-    .work { padding: 10rem var(--pad); background: var(--ink); }
-    .work-head { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 2rem; margin-bottom: 6rem; }
-    .work h2 { font-size: clamp(4rem, 10vw, 10rem); line-height: .76; margin: 0; color: var(--acid); }
+    .work { padding: 7rem var(--pad); background: var(--ink); }
+    .work-head { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 2rem; margin-bottom: 4rem; }
+    .work h2 { font-size: clamp(3.5rem, 7.5vw, 7.8rem); line-height: .78; margin: 0; color: var(--acid); }
     .work-head p { justify-self: end; max-width: 30rem; line-height: 1.6; color: #b9b9b0; }
-    .case { margin-bottom: 8rem; }
+    .case { margin-bottom: 5rem; }
     .case-top { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
     .case-title { font-size: clamp(2rem, 4.5vw, 5rem); line-height: .95; margin: 0; }
     .case-tags { text-align: right; color: #999; font-size: .62rem; }
@@ -173,14 +186,14 @@
     .case:nth-child(even) .browser-shell { margin-left: 8vw; }
 
     /* AI Lab */
-    .lab { min-height: 100vh; padding: 10rem var(--pad); background: var(--acid); color: var(--ink); position: relative; overflow: hidden; }
+    .lab { padding: 7rem var(--pad); background: var(--acid); color: var(--ink); position: relative; overflow: hidden; }
     .lab-orbit { position: absolute; width: 52vw; aspect-ratio: 1; border: 1px solid rgba(0,0,0,.2); border-radius: 50%; right: -15vw; top: -12vw; animation: orbit 18s linear infinite; }
     .lab-orbit::before, .lab-orbit::after { content: ''; position: absolute; border-radius: 50%; background: var(--pulp); }
     .lab-orbit::before { width: 17%; aspect-ratio: 1; top: 5%; left: 15%; }
     .lab-orbit::after { width: 8%; aspect-ratio: 1; bottom: 14%; right: 10%; background: var(--leaf); }
     @keyframes orbit { to { transform: rotate(360deg); } }
     .lab-grid { position: relative; z-index: 2; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(3rem,8vw,9rem); align-items: start; }
-    .lab h2 { font-size: clamp(4rem, 9vw, 9rem); line-height: .77; margin-bottom: 2rem; }
+    .lab h2 { font-size: clamp(3.5rem, 7vw, 7rem); line-height: .8; margin-bottom: 2rem; }
     .lab-copy { max-width: 30rem; line-height: 1.6; }
     .lab-panel { margin-top: 3rem; border: 2px solid var(--ink); background: rgba(243,240,223,.72); backdrop-filter: blur(12px); padding: clamp(1rem, 3vw, 2.2rem); box-shadow: 12px 12px 0 var(--ink); }
     .lab-label { display: flex; justify-content: space-between; margin-bottom: 1.5rem; font-size: .6rem; }
@@ -199,8 +212,8 @@
     .result-text { line-height: 1.6; max-width: 38rem; }
 
     /* Contact */
-    .contact { min-height: 100svh; padding: 9rem var(--pad) 3rem; background: var(--cream); color: var(--ink); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
-    .contact h2 { font-size: clamp(4.2rem, 13vw, 14rem); line-height: .72; margin-bottom: 5rem; }
+    .contact { padding: 7rem var(--pad) 3rem; background: var(--cream); color: var(--ink); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+    .contact h2 { font-size: clamp(3.8rem, 9.5vw, 10rem); line-height: .76; margin-bottom: 3.5rem; }
     .contact h2 span { display: block; color: var(--pulp); margin-left: 12vw; }
     .contact-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 5rem; align-items: start; }
     .contact-note { line-height: 1.6; max-width: 24rem; }
@@ -211,7 +224,7 @@
     .field-wrap textarea { min-height: 90px; resize: vertical; }
     .contact-submit { justify-self: end; width: 9rem; height: 9rem; border-radius: 50%; border: 0; background: var(--ink); color: var(--acid); text-transform: uppercase; font: 500 .67rem 'DM Mono', monospace; cursor: pointer; transition: transform .35s, background .35s; }
     .contact-submit:hover { transform: rotate(-8deg) scale(1.07); background: var(--leaf); }
-    footer { margin-top: 7rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,.3); display: flex; justify-content: space-between; align-items: end; gap: 2rem; font-size: .62rem; }
+    footer { margin-top: 4.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,.3); display: flex; justify-content: space-between; align-items: end; gap: 2rem; font-size: .62rem; }
     footer .footer-logo { font: 800 clamp(2.5rem,6vw,6rem)/.8 'Syne', sans-serif; letter-spacing: -.08em; }
 
     .reveal { opacity: 0; transform: translateY(45px); }
@@ -228,7 +241,7 @@
       .hero-title .outline { margin-left: 6vw; }
       .hero-bottom { left: var(--pad); right: auto; bottom: 2.6rem; max-width: 20rem; }
       .manifesto { grid-template-columns: 1fr; min-height: auto; }
-      .manifesto-media { position: relative; top: 0; height: 68vh; }
+      .manifesto-media { position: relative; top: 0; height: 56vh; }
       .manifesto-copy { padding-top: 2rem; }
       .field-head, .work-head { grid-template-columns: 1fr; }
       .field-intro, .work-head p { justify-self: start; }
@@ -248,8 +261,16 @@
       .hero-bottom p { display: none; }
       .hero-title { font-size: 22vw; line-height: .76; }
       .hero-title .outline { -webkit-text-stroke-width: 1px; }
-      .manifesto, .services, .work, .lab, .contact { padding-top: 7rem; padding-bottom: 7rem; }
-      .photo-card { width: 72vw; height: 105vw; }
+      .manifesto, .services, .work, .lab, .contact { padding-top: 5rem; padding-bottom: 5rem; }
+      .field { padding: 5rem 1rem; }
+      .atlas { height: auto; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; padding-top: 1rem; }
+      .atlas-word { top: 45%; font-size: 30vw; }
+      .media-tile, .atlas-a, .atlas-b, .atlas-c, .atlas-d, .atlas-e, .atlas-f, .atlas-g, .atlas-lens { position: relative; inset: auto; width: auto; height: 48vw; margin: 0; transform: none; border-radius: .65rem; }
+      .atlas-a, .atlas-d { height: 62vw; }
+      .atlas-lens { grid-column: 1 / -1; height: 74vw; grid-row: 1; }
+      .atlas-lens::after { font-size: .45rem; }
+      .lens-reveal { clip-path: circle(23% at 70% 40%); }
+      .atlas-orbit { left: auto; right: .7rem; top: 58vw; width: 4.5rem; }
       .service { padding: 1.5rem 0; }
       .service p { display: none; }
       .case { margin-bottom: 5rem; }
@@ -269,6 +290,7 @@
       #seed-canvas, #cursor { display: none; }
       .hero-film video { display: none; }
       .hero-film { background: url('assets/video-poster.jpg') center/cover; }
+      .lens-reveal { clip-path: circle(24% at 68% 40%); }
       .reveal { opacity: 1; transform: none; }
       .clip-reveal { clip-path: none; }
     }
@@ -338,16 +360,21 @@
         <div><div class="eyebrow reveal">Matéria-prima visual</div><h2 class="display reveal" id="field-title">Do fruto<br>ao futuro.</h2></div>
         <p class="field-intro reveal">Forma, textura, cor, cheiro, memória. O Cerrado não é só referência: é um sistema visual inteiro esperando para ser reinventado.</p>
       </div>
-      <div class="photo-river" id="photo-river">
-        <figure class="photo-card"><img src="assets/pequi-hand.jpg" alt="Mão sustentando frutos verdes de pequi" loading="lazy"><figcaption class="mono">Força / abundância</figcaption></figure>
-        <figure class="photo-card"><img src="assets/pequi-cut.jpg" alt="Pequi aberto revelando a polpa amarela em forma de flor" loading="lazy"><figcaption class="mono">Dentro / surpresa</figcaption></figure>
-        <figure class="photo-card"><img src="assets/pequi-flowers-blue.jpg" alt="Flores brancas de pequi contra o céu azul" loading="lazy"><figcaption class="mono">Flor / movimento</figcaption></figure>
-        <figure class="photo-card"><img src="assets/pequi-close.jpg" alt="Close da polpa amarela e casca verde do pequi" loading="lazy"><figcaption class="mono">Polpa / energia</figcaption></figure>
-        <figure class="photo-card"><img src="assets/pequi-halves.jpg" alt="Pequis inteiros e abertos mostrando a polpa amarela" loading="lazy"><figcaption class="mono">Contraste / matéria</figcaption></figure>
-        <figure class="photo-card"><img src="assets/pequi-bloom.jpg" alt="Flores e botões arroxeados do pequizeiro" loading="lazy"><figcaption class="mono">Origem / transformação</figcaption></figure>
-        <figure class="photo-card"><img src="assets/pequi-still-life.jpg" alt="Natureza-morta colorida com pequis sobre fundo verde-água" loading="lazy"><figcaption class="mono">Cor / direção</figcaption></figure>
-        <figure class="photo-card"><img src="assets/pequi-sauce.webp" alt="Prato de pequi ao molho" loading="lazy"><figcaption class="mono">Sabor / memória</figcaption></figure>
-        <figure class="photo-card"><img src="assets/pequi-market.jpg" alt="Banca de mercado cheia de pequis amarelos" loading="lazy"><figcaption class="mono">Rua / cultura</figcaption></figure>
+      <div class="atlas" id="media-atlas">
+        <div class="atlas-word" aria-hidden="true">PEQUI</div>
+        <figure class="media-tile atlas-a" data-depth="-10"><img src="assets/pequi-hand.jpg" alt="Mão sustentando frutos verdes de pequi" loading="lazy"><figcaption class="mono">Força / abundância</figcaption></figure>
+        <figure class="media-tile atlas-b" data-depth="8"><img src="assets/pequi-flowers-blue.jpg" alt="Flores brancas de pequi contra o céu azul" loading="lazy"><figcaption class="mono">Flor / movimento</figcaption></figure>
+        <figure class="media-tile atlas-c" data-depth="-7"><img src="assets/pequi-sauce.webp" alt="Prato de pequi ao molho" loading="lazy"><figcaption class="mono">Sabor / memória</figcaption></figure>
+        <figure class="media-tile atlas-d" data-depth="10"><img src="assets/pequi-market.jpg" alt="Banca de mercado cheia de pequis amarelos" loading="lazy"><figcaption class="mono">Rua / cultura</figcaption></figure>
+        <figure class="media-tile atlas-e" data-depth="13"><img src="assets/pequi-cut.jpg" alt="Pequi aberto revelando a polpa amarela em forma de flor" loading="lazy"><figcaption class="mono">Dentro / surpresa</figcaption></figure>
+        <figure class="media-tile atlas-f" data-depth="-14"><img src="assets/pequi-bloom.jpg" alt="Flores e botões arroxeados do pequizeiro" loading="lazy"><figcaption class="mono">Origem / transformação</figcaption></figure>
+        <figure class="media-tile atlas-g" data-depth="7"><img src="assets/pequi-halves.jpg" alt="Pequis inteiros e abertos mostrando a polpa amarela" loading="lazy"><figcaption class="mono">Contraste / matéria</figcaption></figure>
+        <figure class="media-tile atlas-lens" id="atlas-lens" data-depth="-4">
+          <img class="lens-base" src="assets/pequi-still-life.jpg" alt="Natureza-morta colorida com pequis sobre fundo verde-água" loading="lazy">
+          <span class="lens-reveal" aria-hidden="true"></span>
+          <figcaption class="mono">Cor / direção / polpa</figcaption>
+        </figure>
+        <div class="atlas-orbit" aria-hidden="true">imagem<br>é matéria<br>viva</div>
       </div>
     </section>
 
@@ -456,7 +483,7 @@
     const cursor = document.getElementById('cursor');
     if (matchMedia('(pointer:fine)').matches) {
       addEventListener('pointermove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
-      document.querySelectorAll('a, button, input, textarea, .photo-card').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('active')); el.addEventListener('mouseleave', () => cursor.classList.remove('active')); });
+      document.querySelectorAll('a, button, input, textarea, .media-tile').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('active')); el.addEventListener('mouseleave', () => cursor.classList.remove('active')); });
       document.querySelectorAll('.magnetic').forEach(el => {
         el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX-r.left-r.width/2)*.14}px,${(e.clientY-r.top-r.height/2)*.14}px)`; });
         el.addEventListener('pointerleave', () => el.style.transform = '');
@@ -471,9 +498,22 @@
       document.querySelectorAll('.reveal').forEach(el => gsap.to(el, { scrollTrigger: { trigger: el, start: 'top 88%' }, opacity: 1, y: 0, duration: .9, ease: 'power3.out' }));
       document.querySelectorAll('.clip-reveal').forEach(el => gsap.to(el, { scrollTrigger: { trigger: el, start: 'top 84%' }, clipPath: 'inset(0 0 0% 0)', duration: 1.25, ease: 'power4.inOut' }));
       gsap.to('.manifesto-media img', { scrollTrigger: { trigger: '.manifesto', start: 'top bottom', end: 'bottom top', scrub: 1 }, yPercent: 12, ease: 'none' });
-      const river = document.getElementById('photo-river');
-      gsap.to(river, { scrollTrigger: { trigger: '.field', start: 'top 70%', end: 'bottom top', scrub: 1 }, x: () => Math.min(0, innerWidth - river.scrollWidth - 40), ease: 'none' });
+      document.querySelectorAll('.media-tile[data-depth]').forEach(tile => gsap.to(tile, { scrollTrigger: { trigger: '.field', start: 'top bottom', end: 'bottom top', scrub: 1 }, yPercent: Number(tile.dataset.depth), ease: 'none' }));
+      gsap.to('.atlas-orbit', { scrollTrigger: { trigger: '.field', start: 'top bottom', end: 'bottom top', scrub: 1 }, rotation: 220, yPercent: -55, ease: 'none' });
       gsap.to('#hero-video', { scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }, scale: 1.2, opacity: .35 });
+    }
+
+    const atlasLens = document.getElementById('atlas-lens');
+    if (atlasLens && matchMedia('(pointer:fine)').matches) {
+      atlasLens.addEventListener('pointermove', e => {
+        const rect = atlasLens.getBoundingClientRect();
+        atlasLens.style.setProperty('--lens-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        atlasLens.style.setProperty('--lens-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+      });
+      atlasLens.addEventListener('pointerleave', () => {
+        atlasLens.style.setProperty('--lens-x', '50%');
+        atlasLens.style.setProperty('--lens-y', '50%');
+      });
     }
 
     const heroVideo = document.getElementById('hero-video');
