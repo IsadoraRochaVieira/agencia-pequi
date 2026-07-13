@@ -17,7 +17,8 @@
     <meta property="og:url" content="https://isadorarochavieira.github.io/agencia-pequi/">
     <meta property="og:title" content="PEQUI | Agência Digital Criativa">
     <meta property="og:description" content="Design, código e conteúdo que têm gosto de ideia boa. Landing pages com IA, branding visual e sites que convertem.">
-    <meta property="og:image" content="https://isadorarochavieira.github.io/agencia-pequi/og-image.png">
+    <meta property="og:image" content="https://isadorarochavieira.github.io/agencia-pequi/assets/pequi-tree.jpg">
+    <meta property="og:image:alt" content="Pequizeiro carregado de frutos sob o céu azul do Cerrado">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="PEQUI Agência Digital">
 
@@ -25,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PEQUI | Agência Digital Criativa">
     <meta name="twitter:description" content="Design, código e conteúdo que têm gosto de ideia boa.">
-    <meta name="twitter:image" content="https://isadorarochavieira.github.io/agencia-pequi/og-image.png">
+    <meta name="twitter:image" content="https://isadorarochavieira.github.io/agencia-pequi/assets/pequi-tree.jpg">
 
     <!-- Schema JSON-LD -->
     <script type="application/ld+json">
@@ -118,6 +119,42 @@
 
         .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
         .particle { position: absolute; background-color: var(--pequi-yellow); border-radius: 50%; opacity: 0.3; }
+
+        /* Cinematic hero */
+        #home { min-height: 100svh; isolation: isolate; background: #020603; }
+        .hero-media { position: absolute; inset: 0; z-index: -3; overflow: hidden; }
+        .hero-media video {
+            width: 100%; height: 100%; object-fit: cover; object-position: center;
+            filter: saturate(1.15) contrast(1.05); transform: scale(1.02);
+        }
+        .hero-media::before {
+            content: ''; position: absolute; inset: 0; z-index: 1;
+            background:
+                radial-gradient(circle at 50% 48%, rgba(0,0,0,.08) 0, rgba(0,0,0,.34) 52%, rgba(0,0,0,.8) 100%),
+                linear-gradient(180deg, rgba(0,0,0,.38) 0%, rgba(0,0,0,.1) 45%, #000 100%);
+        }
+        .hero-media::after {
+            content: ''; position: absolute; inset: 0; z-index: 2; opacity: .13; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+        }
+        .hero-copy { text-shadow: 0 2px 28px rgba(0,0,0,.7); }
+        .hero-film-label {
+            position: absolute; left: 2rem; bottom: 2rem; z-index: 4;
+            display: flex; align-items: center; gap: .65rem; color: rgba(255,255,255,.72);
+            font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+        }
+        .hero-film-label::before { content: ''; width: 2.5rem; height: 1px; background: var(--pequi-yellow); }
+
+        /* Brazilian origin editorial block */
+        .origin-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 5rem; align-items: center; }
+        .origin-photo { position: relative; min-height: 560px; border-radius: 2rem; overflow: hidden; }
+        .origin-photo img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+        .origin-photo:hover img { transform: scale(1.035); }
+        .origin-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,.8)); }
+        .origin-caption { position: absolute; left: 1.5rem; bottom: 1.5rem; z-index: 2; }
+        .origin-kicker { color: var(--pequi-yellow); font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; }
+        .origin-title { font-size: clamp(2.5rem, 5vw, 5.5rem); line-height: .92; letter-spacing: -.05em; }
+        .origin-copy { font-size: clamp(1.05rem, 1.7vw, 1.35rem); line-height: 1.75; color: #d1d5db; }
 
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background-color: #000; border: 2px solid var(--pequi-yellow); padding: 2rem; max-width: 80%; position: relative; }
@@ -283,6 +320,17 @@
             h1 { font-size: 2rem !important; }
             h2 { font-size: 1.5rem !important; }
             #chat-box { width: 290px; }
+            .hero-film-label { left: 1rem; bottom: 1rem; }
+            .origin-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .origin-photo { min-height: 420px; order: -1; border-radius: 1.4rem; }
+            .origin-title { font-size: 3.2rem !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .trail-dot, .cursor-dot, .cursor-outline { display: none; }
+            .hero-media video { display: none; }
+            .hero-media { background: url('assets/video-poster.jpg') center/cover no-repeat; }
+            .origin-photo img { transition: none; }
         }
     </style>
 </head>
@@ -374,8 +422,13 @@
 
     <!-- Hero Section -->
     <section id="home" class="section flex items-center justify-center relative">
-        <div class="particles" id="particles-1" id="hero-layer-3"></div>
-        <div class="container mx-auto px-4 text-center" style="position:relative; z-index:1;">
+        <div class="hero-media" aria-hidden="true">
+            <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/video-poster.jpg">
+                <source src="assets/pequi-film.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="particles" id="particles-1"></div>
+        <div class="container mx-auto px-4 text-center hero-copy" style="position:relative; z-index:1;">
             <div id="hero-layer-1" class="inline-block px-4 py-1 border border-yellow-500 text-yellow-400 text-sm rounded-full mb-6 tracking-widest uppercase">Agência Digital Criativa</div>
             <h1 id="typing-text" class="text-5xl md:text-7xl font-bold mb-6 typing-text" style="color: #FFD500;"></h1>
             <div id="hero-layer-2">
@@ -395,23 +448,31 @@
                 <i class="fas fa-chevron-down"></i>
             </a>
         </div>
+        <div class="hero-film-label">Manifesto visual · Cerrado em movimento</div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section bg-black relative">
         <div class="particles" id="particles-2"></div>
         <div class="container mx-auto px-4 py-20">
-            <h2 class="text-4xl md:text-6xl font-bold mb-16 text-center" style="color: #FFD500;">O QUE É A <span class="glitch" data-text="PEQUI">PEQUI</span>?</h2>
-            <div class="max-w-4xl mx-auto text-xl md:text-2xl text-center">
-                <p class="mb-8 text-gray-200">
-                    <span class="word-hover">PEQUI</span> é um <span class="word-hover">estúdio criativo</span> sem medo do <span class="word-hover">código</span> nem da <span class="word-hover">arte</span>.
-                    Fazemos <span class="word-hover">landing pages</span> com <span class="word-hover">IA</span>, sites <span class="word-hover">performáticos</span>,
-                    imagens que <span class="word-hover">vendem</span> e ideias que <span class="word-hover">grudam</span>.
-                </p>
-                <p class="text-gray-300">
-                    Nosso DNA é <span class="word-hover">brasileiro</span>, nosso código é <span class="word-hover">universal</span>, e nossa <span class="word-hover">criatividade</span>
-                    tem o sabor marcante do <span class="word-hover">pequi</span> — forte, único e inesquecível.
-                </p>
+            <div class="origin-grid">
+                <figure class="origin-photo">
+                    <img src="assets/pequi-tree.jpg" alt="Galhos de um pequizeiro carregados de frutos sob o céu azul do Cerrado" loading="lazy" width="1024" height="1024">
+                    <figcaption class="origin-caption">
+                        <div class="origin-kicker">Nossa raiz</div>
+                        <div class="text-white font-bold text-xl mt-1">Cerrado brasileiro</div>
+                    </figcaption>
+                </figure>
+                <div>
+                    <div class="origin-kicker mb-5">Criatividade com origem</div>
+                    <h2 class="origin-title mb-8" style="color: #FFD500;">FORTE.<br>ÚNICA.<br><span class="glitch" data-text="PEQUI.">PEQUI.</span></h2>
+                    <p class="origin-copy mb-6">
+                        Somos um <span class="word-hover">estúdio criativo</span> que mistura estratégia, design, código e inteligência artificial para transformar ideias em marcas vivas.
+                    </p>
+                    <p class="origin-copy">
+                        Nosso DNA é <span class="word-hover">brasileiro</span>, nosso código é universal e nossa criatividade carrega o sabor do Cerrado: impossível passar despercebida.
+                    </p>
+                </div>
             </div>
 
             <!-- Stats -->
@@ -848,6 +909,20 @@ Seja criativo, use linguagem que converte, e adapte o tom ao público do nicho. 
         }
         createParticles('particles-1');
         createParticles('particles-2');
+
+        // Hero film: pause when off-screen and honor reduced-motion preferences
+        const heroVideo = document.getElementById('hero-video');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (heroVideo) {
+            if (reducedMotion) {
+                heroVideo.pause();
+            } else if ('IntersectionObserver' in window) {
+                new IntersectionObserver(([entry]) => {
+                    if (entry.isIntersecting) heroVideo.play().catch(() => {});
+                    else heroVideo.pause();
+                }, { threshold: 0.15 }).observe(heroVideo);
+            }
+        }
 
         const style = document.createElement('style');
         style.innerHTML = `@keyframes float{0%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(10px,10px) rotate(5deg)}50%{transform:translate(20px,5px) rotate(0deg)}75%{transform:translate(10px,0) rotate(-5deg)}100%{transform:translate(0,0) rotate(0deg)}}`;
